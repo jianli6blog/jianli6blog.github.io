@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>渐离的博客</title>
+  <title>PHP文件操作函数：操作文件 | 渐离的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="什么是KVMKemel-based Virtual Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。KVM的虚拟化需要硬件支持（如Intel VT技术或者AMD V技术）是基于硬件的完全模拟化。">
+  <meta name="description" content="函数 语法 说明    copy() copy(源文件，目的文件) 复制文件   unlink() unlink(目标文件) 删除文件   rename() rename(旧文件名，新文件名) 重命名文件或目录，或移动文件   ftruncate() ftruncate(目标文件资源，截取长度) 将文件截断到指定长度   file_exists() file_exists(目标文件名) 判断">
 <meta property="og:type" content="article">
-<meta property="og:title" content="渐离的博客">
-<meta property="og:url" content="http://example.com/2022/03/08/KVM/index.html">
+<meta property="og:title" content="PHP文件操作函数：操作文件">
+<meta property="og:url" content="http://example.com/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/index.html">
 <meta property="og:site_name" content="渐离的博客">
-<meta property="og:description" content="什么是KVMKemel-based Virtual Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。KVM的虚拟化需要硬件支持（如Intel VT技术或者AMD V技术）是基于硬件的完全模拟化。">
+<meta property="og:description" content="函数 语法 说明    copy() copy(源文件，目的文件) 复制文件   unlink() unlink(目标文件) 删除文件   rename() rename(旧文件名，新文件名) 重命名文件或目录，或移动文件   ftruncate() ftruncate(目标文件资源，截取长度) 将文件截断到指定长度   file_exists() file_exists(目标文件名) 判断">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-08T10:19:39.907Z">
-<meta property="article:modified_time" content="2022-02-28T06:00:03.681Z">
+<meta property="article:published_time" content="2022-03-18T05:07:09.532Z">
+<meta property="article:modified_time" content="2022-03-18T05:07:07.702Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -73,23 +73,82 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-KVM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-PHP文件操作函数：操作文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/03/08/KVM/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.907Z" itemprop="datePublished">2022-03-08</time>
+    <a href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:09.532Z" itemprop="datePublished">2022-03-18</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      PHP文件操作函数：操作文件
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="什么是KVM"><a href="#什么是KVM" class="headerlink" title="什么是KVM"></a>什么是KVM</h2><h4 id="Kemel-based-Virtual-Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。"><a href="#Kemel-based-Virtual-Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。" class="headerlink" title="Kemel-based Virtual Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。"></a>Kemel-based Virtual Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。</h4><h4 id="KVM的虚拟化需要硬件支持（如Intel-VT技术或者AMD-V技术）是基于硬件的完全模拟化。"><a href="#KVM的虚拟化需要硬件支持（如Intel-VT技术或者AMD-V技术）是基于硬件的完全模拟化。" class="headerlink" title="KVM的虚拟化需要硬件支持（如Intel VT技术或者AMD V技术）是基于硬件的完全模拟化。"></a>KVM的虚拟化需要硬件支持（如Intel VT技术或者AMD V技术）是基于硬件的完全模拟化。</h4><h4 id=""><a href="#" class="headerlink" title=""></a></h4>
+        <table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">语法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">copy()</td>
+<td align="center">copy(源文件，目的文件)</td>
+<td align="center">复制文件</td>
+</tr>
+<tr>
+<td align="center">unlink()</td>
+<td align="center">unlink(目标文件)</td>
+<td align="center">删除文件</td>
+</tr>
+<tr>
+<td align="center">rename()</td>
+<td align="center">rename(旧文件名，新文件名)</td>
+<td align="center">重命名文件或目录，或移动文件</td>
+</tr>
+<tr>
+<td align="center">ftruncate()</td>
+<td align="center">ftruncate(目标文件资源，截取长度)</td>
+<td align="center">将文件截断到指定长度</td>
+</tr>
+<tr>
+<td align="center">file_exists()</td>
+<td align="center">file_exists(目标文件名)</td>
+<td align="center">判断文件或文件夹是否存在</td>
+</tr>
+<tr>
+<td align="center">is_file()</td>
+<td align="center">is_file(文件名)</td>
+<td align="center">判断指定的路径存在且为文件</td>
+</tr>
+<tr>
+<td align="center">realpath()</td>
+<td align="center">realpath(文件名)</td>
+<td align="center">返回文件的物理路径</td>
+</tr>
+<tr>
+<td align="center">pathinfo()</td>
+<td align="center">pathinfo(文件名)</td>
+<td align="center">以数组形式返回文件的路径和文件名信息</td>
+</tr>
+</tbody></table>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/KVM/" data-id="cl0pbcz41000744tsbqpa6cme" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/" data-id="cl0zw96nh0004vctsfou0amvr" data-title="PHP文件操作函数：操作文件" class="article-share-link">Share</a>
       
       
       
@@ -99,19 +158,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/03/08/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%87%BD%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          PHP文件访问函数:读取文件
         
       </div>
     </a>
   
   
-    <a href="/2022/03/08/FHS%E7%9B%AE%E5%BD%95%E5%AE%9A%E4%B9%89%E5%9B%BE%E4%BE%8B/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/03/18/PHP%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%9B%AE%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">PHP目录的基本操作：操作目录</div>
     </a>
   
 </nav>

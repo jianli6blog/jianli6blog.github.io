@@ -71,75 +71,44 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-20220301" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-PHP访问MySQL数据库的流程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/03/08/20220301/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:47.571Z" itemprop="datePublished">2022-03-08</time>
+    <a href="/2022/03/18/PHP%E8%AE%BF%E9%97%AEMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B5%81%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:18.132Z" itemprop="datePublished">2022-03-18</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/PHP%E8%AE%BF%E9%97%AEMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B5%81%E7%A8%8B/">PHP访问MySQL数据库的流程</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Title：20220301笔记"><a href="#Title：20220301笔记" class="headerlink" title="Title：20220301笔记"></a>Title：20220301笔记</h1><p><strong>用户和用户组的关系</strong></p>
-<ol>
-<li><p>一对一∶一个用户可以存在一个组中，是组中的<br>唯一成员</p>
-</li>
-<li><p>一对多：一个用户可以存在多个用户组中，此用户具有多个组的共同权限</p>
-</li>
-<li><p>多对一：多个用户可以存放在一个组中，这些用户具有和组相同的权限</p>
-</li>
-<li><p>多对多：多个用户可以存在多个组中，即以上3种关系的扩展</p>
-</li>
-</ol>
-<p><strong>相关文件的配置</strong></p>
-<p>&#x2F;etc&#x2F;group 存储当前系统中所有用户组信息<br>该文件内容的每一行代表一个用户组，每个用户组信息格式固定</p>
-<p><strong>文件权限</strong></p>
-<p>文件权限分别为：读(read)，写(write)，执x(execute)，简写即为(r.w.x)，也可以可用数字来 (4,2,1) 表示，-即无权限</p>
-<p>每个文件针对每类访问者定义了三种主要权限，其中，第一位：代表文件类型，后面每3位代表一组权限，分别是：所有者、所属组和其他人</p>
-<p>文件类型</p>
-<p>所有者权限</p>
-<p>属组权限</p>
-<p>其他用户权限</p>
-<p>r–&gt;读</p>
-<p>W–&gt;写</p>
-<p>x –&gt; 执行</p>
-<p><strong>注：</strong></p>
-<p>1.root账户不受文件权限的读写限制，执行权限受限制</p>
-<p>2.用户获取文件权限的顺序：先看是否为所有者，如果是，则后面权限不看；再看是否为所属组，如果是，则后面权限不看</p>
-<p>3.缺省创建的文件不可授予可执行的权限，基于最基本的安全机制，防止病毒等</p>
-<p>第一个字段（root）：用户组的组名</p>
-<p>第二个字段（x）：加密后的用户组密码</p>
-<p>第三个字段（0）：用户组ID，GID</p>
-<p>第四个字段（空值）：用户组的成员列表，多个组成员用逗号分隔</p>
-<p>用户和用户组的概念</p>
-<p>用户 ——&gt;使用操作系统的人</p>
-<p>Linux系统是一个多用户多任务的分时操作系统，任何一个要使用系统资源的用户，都必须首先向系统管理员申请一个账号，然后以这个账号的身份进入系统每个用户账号都拥有一个唯一的用户名和各自的口令</p>
-<p><strong>相关文件的配置</strong></p>
-<p>&#x2F;etc&#x2F;passwd 存储当前系统中所有用户的信息（密码除外）</p>
-<p>该文件内容的每一行代表一个用户的配置信息，每个用户信息格式固定</p>
-<p>第一个字段（第一个root）：用户名</p>
-<p>第二个字段（x）：加密的密码</p>
-<p>第三个字段（第一个0）：用户ID</p>
-<p>第四个字段（第二个0）：用户组ID</p>
-<p>第五个字段（第二个root）：用户的描述信息，默认用户的全名或空值</p>
-<p>第六个字段（&#x2F;root）：用户的主目录</p>
-<p>第七个字段（&#x2F;bin&#x2F;bash）：登录shell，字段&#x2F;sbin&#x2F;nologin表示禁止登录</p>
-<p>显示、设置文件的默认权限<img src="https://cdn.nlark.com/yuque/0/2022/png/26310272/1646127699481-5f4760be-4e50-4a3c-8074-207251b36d1f.png" alt="img"></p>
-<p>[root@localhost ~]# umask [-S] #显示、设置文件的默认权限</p>
-<p>参数说明： -S 以 rwx 形式显示新建文件的默认权限</p>
-<p>命令说明：</p>
-<p>对于windows而言，默认权限是从上级目录继承而来的，而linux则是通过umask权限设定的</p>
-<p>如果用户建立文件，默认是没有可执行权限的，即权限表示为 -rw-rw-rw-，即666</p>
-<p>如果用户建立目录，默认权限是全开放的，即权限表示drwxrwxrwx，即777</p>
-<p>umask的值，默认为022，就是需要减掉的权限</p>
+        <p>第一步：连结MySQL服务器</p>
+<p>​            使用 mysql_connect() 函数建立与MySQL服务器的连接</p>
+<p>第二步：选择MySQL数据库</p>
+<p>​            使用 mysql_select_db() 函数选择MySQL数据库服务器上的数据库，并与数据库建立连接</p>
+<p>第三步：执行SQL语句</p>
+<p>​            在选择的数据库中使用mysql_query() 函数执行SQL语句。</p>
+<p>对数据的操作方式主要包括四种方式：</p>
+<p>查询数据：使用select语句实现数据的查询功能</p>
+<p>插入数据：使用insert into语句向数据库中插入数据</p>
+<p>更新数据：使用update语句修改数据库中的记录</p>
+<p>删除数据：使用delete语句删除数据库中的记录</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/20220301/" data-id="cl0pbcz3u000244tses0mgtn8" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/18/PHP%E8%AE%BF%E9%97%AEMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B5%81%E7%A8%8B/" data-id="cl0zw96ni0006vcts6nmrckfe" data-title="PHP访问MySQL数据库的流程" class="article-share-link">Share</a>
       
       
       
@@ -151,23 +120,41 @@
 
 
   
-    <article id="post-虚拟化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-PHP文件访问函数读取文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/03/08/%E8%99%9A%E6%8B%9F%E5%8C%96/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.929Z" itemprop="datePublished">2022-03-08</time>
+    <a href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%87%BD%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:13.898Z" itemprop="datePublished">2022-03-18</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%87%BD%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/">PHP文件访问函数:读取文件</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="什么是虚拟化"><a href="#什么是虚拟化" class="headerlink" title="什么是虚拟化"></a>什么是虚拟化</h2><h4 id="虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。"><a href="#虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。" class="headerlink" title="虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。"></a>虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。</h4><h4 id="虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。"><a href="#虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。" class="headerlink" title="虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。"></a>虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。</h4><h2 id="虚拟化来历"><a href="#虚拟化来历" class="headerlink" title="虚拟化来历"></a>虚拟化来历</h2><h3 id="按照其发展历史分为四个阶段："><a href="#按照其发展历史分为四个阶段：" class="headerlink" title="按照其发展历史分为四个阶段："></a>按照其发展历史分为四个阶段：</h3><h4 id="（1）硬件仿真虚拟化"><a href="#（1）硬件仿真虚拟化" class="headerlink" title="（1）硬件仿真虚拟化"></a>（1）硬件仿真虚拟化</h4><h4 id="（2）完全虚拟化"><a href="#（2）完全虚拟化" class="headerlink" title="（2）完全虚拟化"></a>（2）完全虚拟化</h4><h4 id="（3）半虚拟化"><a href="#（3）半虚拟化" class="headerlink" title="（3）半虚拟化"></a>（3）半虚拟化</h4><h4 id="（4）操作系统虚拟化"><a href="#（4）操作系统虚拟化" class="headerlink" title="（4）操作系统虚拟化"></a>（4）操作系统虚拟化</h4>
+        <p>读取文件常用函数</p>
+<p>fread() ：读取整个文件或文件中指定长度的字符串，可用于二进制文件读取</p>
+<p>fgets() ：读取文件中的一行字符</p>
+<p>fgetss() ：读取文件中的一行字符并去掉所有HTML和PHP标记</p>
+<p>fgetc() ：读取文件中的一个字符</p>
+<p>file_get_contents() ：将文件读入字符串</p>
+<p>file() ：把文件读入到一个数组中</p>
+<p>readfile() ：读取一个文件，并输出到输出缓冲</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/%E8%99%9A%E6%8B%9F%E5%8C%96/" data-id="cl0pbcz42000944ts4h278z0h" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/18/PHP%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%87%BD%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/" data-id="cl0zw96nh0005vcts70yx0wff" data-title="PHP文件访问函数:读取文件" class="article-share-link">Share</a>
       
       
       
@@ -179,249 +166,82 @@
 
 
   
-    <article id="post-信息安全框架" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-PHP文件操作函数：操作文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/03/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.926Z" itemprop="datePublished">2022-03-08</time>
+    <a href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:09.532Z" itemprop="datePublished">2022-03-18</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220301133852824.png" alt="image-20220301133852824"></p>
-<h2 id="curl-file-x2F-x2F-x2F-root-x2F-baidu-txt"><a href="#curl-file-x2F-x2F-x2F-root-x2F-baidu-txt" class="headerlink" title="curl file:&#x2F;&#x2F;&#x2F;root&#x2F;baidu.txt"></a>curl file:&#x2F;&#x2F;&#x2F;root&#x2F;baidu.txt</h2><p>curl命令是一个网络工具，其主要作用是通过http、ftp等方式下载文件，也能够上传文件，作为一个功能强大的网络工具，curl命令同时支持HTTPS等众多协议。</p>
-<h1 id="Linux软件安装"><a href="#Linux软件安装" class="headerlink" title="Linux软件安装"></a>Linux软件安装</h1><h2 id="Centos系统中三种安装软件的方法"><a href="#Centos系统中三种安装软件的方法" class="headerlink" title="Centos系统中三种安装软件的方法"></a>Centos系统中三种安装软件的方法</h2><h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><h3 id="1-源码包"><a href="#1-源码包" class="headerlink" title="1.源码包"></a>1.源码包</h3><h3 id="2-rpm二进制包"><a href="#2-rpm二进制包" class="headerlink" title="2.rpm二进制包"></a>2.rpm二进制包</h3><h3 id="3-软件包管理工具（yum）"><a href="#3-软件包管理工具（yum）" class="headerlink" title="3.软件包管理工具（yum）"></a>3.软件包管理工具（yum）</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" data-id="cl0pbcz3w000444ts7fo47cl1" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
+      <header class="article-header">
+        
   
-</article>
-
-
-
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/">PHP文件操作函数：操作文件</a>
+    </h1>
   
-    <article id="post-网安法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/%E7%BD%91%E5%AE%89%E6%B3%95/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.922Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="网安法解读"><a href="#网安法解读" class="headerlink" title="网安法解读"></a>网安法解读</h1><h2 id="（1）《中华人民共和国刑法》（第285、286条）"><a href="#（1）《中华人民共和国刑法》（第285、286条）" class="headerlink" title="（1）《中华人民共和国刑法》（第285、286条）"></a>（1）《中华人民共和国刑法》（第285、286条）</h2><h3 id="第二百八十五条"><a href="#第二百八十五条" class="headerlink" title="第二百八十五条"></a>第二百八十五条</h3><h4 id="第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。"><a href="#第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。" class="headerlink" title="第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。"></a>第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。</h4><h3 id="第二百八十六条"><a href="#第二百八十六条" class="headerlink" title="第二百八十六条"></a>第二百八十六条</h3><h4 id="第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。"><a href="#第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。" class="headerlink" title="第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。"></a>第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。</h4><h4 id="第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。"><a href="#第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。" class="headerlink" title="第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。"></a>第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。</h4><h4 id="第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。"><a href="#第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。" class="headerlink" title="第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。"></a>第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。</h4><h2 id="（2）《中华人民共和国刑法》（七）"><a href="#（2）《中华人民共和国刑法》（七）" class="headerlink" title="（2）《中华人民共和国刑法》（七）"></a>（2）《中华人民共和国刑法》（七）</h2><h4 id="在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”"><a href="#在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”" class="headerlink" title="在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”"></a>在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”</h4><h4 id="“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”"><a href="#“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”" class="headerlink" title="“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”"></a>“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”</h4><h2 id="（3）《中华人民共和国刑法》（九）"><a href="#（3）《中华人民共和国刑法》（九）" class="headerlink" title="（3）《中华人民共和国刑法》（九）"></a>（3）《中华人民共和国刑法》（九）</h2><h4 id="在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”"><a href="#在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”" class="headerlink" title="在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”"></a>在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”</h4><h4 id="在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”"><a href="#在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”" class="headerlink" title="在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”"></a>在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”</h4><h4 id="在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金："><a href="#在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金：" class="headerlink" title="在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金："></a>在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金：</h4><h4 id="（一）致使违法信息大量传播的；"><a href="#（一）致使违法信息大量传播的；" class="headerlink" title="（一）致使违法信息大量传播的；"></a>（一）致使违法信息大量传播的；</h4><h4 id="（二）致使用户信息泄露，造成严重后果的；"><a href="#（二）致使用户信息泄露，造成严重后果的；" class="headerlink" title="（二）致使用户信息泄露，造成严重后果的；"></a>（二）致使用户信息泄露，造成严重后果的；</h4><h4 id="（三）致使刑事案件证据灭失，情节严重的；"><a href="#（三）致使刑事案件证据灭失，情节严重的；" class="headerlink" title="（三）致使刑事案件证据灭失，情节严重的；"></a>（三）致使刑事案件证据灭失，情节严重的；</h4><h4 id="（四）有其他严重情节的。"><a href="#（四）有其他严重情节的。" class="headerlink" title="（四）有其他严重情节的。"></a>（四）有其他严重情节的。</h4><h4 id="“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”"><a href="#“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”" class="headerlink" title="“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”"></a>“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”</h4><h4 id="“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”"><a href="#“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”" class="headerlink" title="“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”"></a>“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”</h4><h2 id="（4）《网络安全法》"><a href="#（4）《网络安全法》" class="headerlink" title="（4）《网络安全法》"></a>（4）《网络安全法》</h2><h4 id="《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。"><a href="#《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。" class="headerlink" title="《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。"></a>《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。</h4><h4 id="《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。"><a href="#《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。" class="headerlink" title="《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。"></a>《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。</h4><h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/%E7%BD%91%E5%AE%89%E6%B3%95/" data-id="cl0pbcz40000644ts8mhhcpe0" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
 
-
-
-  
-    <article id="post-操作系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.918Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="操作系统功能"><a href="#操作系统功能" class="headerlink" title="操作系统功能"></a>操作系统功能</h2><h4 id="进程管理：其工作主要是进程调度，在单用户单任务的情况下，处理器仅为一个用户的一个任务所独占，进程管理的工作十分简单。但在多道程序或多用户的情况下，组织多个作业或任务时，就要解决处理器的调度、分配和回收等问题。"><a href="#进程管理：其工作主要是进程调度，在单用户单任务的情况下，处理器仅为一个用户的一个任务所独占，进程管理的工作十分简单。但在多道程序或多用户的情况下，组织多个作业或任务时，就要解决处理器的调度、分配和回收等问题。" class="headerlink" title="进程管理：其工作主要是进程调度，在单用户单任务的情况下，处理器仅为一个用户的一个任务所独占，进程管理的工作十分简单。但在多道程序或多用户的情况下，组织多个作业或任务时，就要解决处理器的调度、分配和回收等问题。"></a>进程管理：其工作主要是进程调度，在单用户单任务的情况下，处理器仅为一个用户的一个任务所独占，进程管理的工作十分简单。但在多道程序或多用户的情况下，组织多个作业或任务时，就要解决处理器的调度、分配和回收等问题。</h4><h4 id="存储管理分为以下几种功能：存储分配、存储共享、存储保护、存储扩张。"><a href="#存储管理分为以下几种功能：存储分配、存储共享、存储保护、存储扩张。" class="headerlink" title="存储管理分为以下几种功能：存储分配、存储共享、存储保护、存储扩张。"></a>存储管理分为以下几种功能：存储分配、存储共享、存储保护、存储扩张。</h4><h4 id="设备管理有以下几种功能：设备分配、设备传输控制、设备独立性。"><a href="#设备管理有以下几种功能：设备分配、设备传输控制、设备独立性。" class="headerlink" title="设备管理有以下几种功能：设备分配、设备传输控制、设备独立性。"></a>设备管理有以下几种功能：设备分配、设备传输控制、设备独立性。</h4><h4 id="文件管理：文件存储空间的管理、目录管理、文件操作管理、文件保护。"><a href="#文件管理：文件存储空间的管理、目录管理、文件操作管理、文件保护。" class="headerlink" title="文件管理：文件存储空间的管理、目录管理、文件操作管理、文件保护。"></a>文件管理：文件存储空间的管理、目录管理、文件操作管理、文件保护。</h4><h4 id="作业管理：负责处理用户提交的任何要求。"><a href="#作业管理：负责处理用户提交的任何要求。" class="headerlink" title="作业管理：负责处理用户提交的任何要求。"></a>作业管理：负责处理用户提交的任何要求。</h4><h2 id="操作系统分类"><a href="#操作系统分类" class="headerlink" title="操作系统分类"></a>操作系统分类</h2><h3 id="计算机操作系统主要分类："><a href="#计算机操作系统主要分类：" class="headerlink" title="计算机操作系统主要分类："></a>计算机操作系统主要分类：</h3><h4 id="操作系统包含：类Unix和Windows两大阵营。"><a href="#操作系统包含：类Unix和Windows两大阵营。" class="headerlink" title="操作系统包含：类Unix和Windows两大阵营。"></a>操作系统包含：类Unix和Windows两大阵营。</h4><h4 id="类Unix包含：Linux、Mac-OS等。"><a href="#类Unix包含：Linux、Mac-OS等。" class="headerlink" title="类Unix包含：Linux、Mac OS等。"></a>类Unix包含：Linux、Mac OS等。</h4><h4 id="Windows包含：Windows-PC、Windows-Server等。"><a href="#Windows包含：Windows-PC、Windows-Server等。" class="headerlink" title="Windows包含：Windows PC、Windows Server等。"></a>Windows包含：Windows PC、Windows Server等。</h4><h3 id="我们常见的Win-PC版系统有Win-XP、Win-7、Win-10等。"><a href="#我们常见的Win-PC版系统有Win-XP、Win-7、Win-10等。" class="headerlink" title="我们常见的Win PC版系统有Win XP、Win 7、Win 10等。"></a>我们常见的Win PC版系统有Win XP、Win 7、Win 10等。</h3><h4 id="其中Win-XP常被用于银行，ATM等更新换代比较慢的地方。"><a href="#其中Win-XP常被用于银行，ATM等更新换代比较慢的地方。" class="headerlink" title="其中Win XP常被用于银行，ATM等更新换代比较慢的地方。"></a>其中Win XP常被用于银行，ATM等更新换代比较慢的地方。</h4><h3 id="我们常见的Windows-Server服务器操作系统有2003、2012、2019等。"><a href="#我们常见的Windows-Server服务器操作系统有2003、2012、2019等。" class="headerlink" title="我们常见的Windows Server服务器操作系统有2003、2012、2019等。"></a>我们常见的Windows Server服务器操作系统有2003、2012、2019等。</h3><h4 id="以上系统常被用来搭建IIS，SQLServer服务器。"><a href="#以上系统常被用来搭建IIS，SQLServer服务器。" class="headerlink" title="以上系统常被用来搭建IIS，SQLServer服务器。"></a>以上系统常被用来搭建IIS，SQLServer服务器。</h4><h3 id="我们常见Unix-x2F-Linux系统有Debian、Red-Hat等。"><a href="#我们常见Unix-x2F-Linux系统有Debian、Red-Hat等。" class="headerlink" title="我们常见Unix&#x2F;Linux系统有Debian、Red Hat等。"></a>我们常见Unix&#x2F;Linux系统有Debian、Red Hat等。</h3><h4 id="其中Kali-Linux是基于Debian的Linux发行版，设计用于数字取证操作系统，并且预装了许多渗透测试软件，包括nmap、Wireshark、John-the-Ripper等。"><a href="#其中Kali-Linux是基于Debian的Linux发行版，设计用于数字取证操作系统，并且预装了许多渗透测试软件，包括nmap、Wireshark、John-the-Ripper等。" class="headerlink" title="其中Kali Linux是基于Debian的Linux发行版，设计用于数字取证操作系统，并且预装了许多渗透测试软件，包括nmap、Wireshark、John the Ripper等。"></a>其中Kali Linux是基于Debian的Linux发行版，设计用于数字取证操作系统，并且预装了许多渗透测试软件，包括nmap、Wireshark、John the Ripper等。</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-id="cl0pbcz3x000544tsd7qt3i3j" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-VIM使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/VIM%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.914Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>VI &#x2F; VIM共有三种编辑模式，分别是：命令模式、输入模式和底线命令模式。</p>
-<h2 id="输入模式："><a href="#输入模式：" class="headerlink" title="输入模式："></a>输入模式：</h2><h3 id="在命令模式下按下i就进入输入模式。再输入模式中，可以用以下按钮："><a href="#在命令模式下按下i就进入输入模式。再输入模式中，可以用以下按钮：" class="headerlink" title="在命令模式下按下i就进入输入模式。再输入模式中，可以用以下按钮："></a>在命令模式下按下i就进入输入模式。再输入模式中，可以用以下按钮：</h3><h4 id="字符按键及Shift组合：输入字符"><a href="#字符按键及Shift组合：输入字符" class="headerlink" title="字符按键及Shift组合：输入字符"></a>字符按键及Shift组合：输入字符</h4><h4 id="ENTER：回车键，换行"><a href="#ENTER：回车键，换行" class="headerlink" title="ENTER：回车键，换行"></a>ENTER：回车键，换行</h4><h4 id="BACK-SPACE-退格键，删除光标前一个字符"><a href="#BACK-SPACE-退格键，删除光标前一个字符" class="headerlink" title="BACK SPACE:退格键，删除光标前一个字符"></a>BACK SPACE:退格键，删除光标前一个字符</h4><h4 id="DEL：删除键，删除光标后一个字符"><a href="#DEL：删除键，删除光标后一个字符" class="headerlink" title="DEL：删除键，删除光标后一个字符"></a>DEL：删除键，删除光标后一个字符</h4><h4 id="方向键：在文本中移动光标"><a href="#方向键：在文本中移动光标" class="headerlink" title="方向键：在文本中移动光标"></a>方向键：在文本中移动光标</h4><h4 id="HOME-x2F-END-移动光标到行首-x2F-行尾"><a href="#HOME-x2F-END-移动光标到行首-x2F-行尾" class="headerlink" title="HOME&#x2F;END:移动光标到行首&#x2F;行尾"></a>HOME&#x2F;END:移动光标到行首&#x2F;行尾</h4><h4 id="Page-Up-x2F-Page-Down：上-x2F-下翻页"><a href="#Page-Up-x2F-Page-Down：上-x2F-下翻页" class="headerlink" title="Page Up&#x2F;Page Down：上&#x2F;下翻页"></a>Page Up&#x2F;Page Down：上&#x2F;下翻页</h4><h4 id="Insert：切换为输入-x2F-替换模式"><a href="#Insert：切换为输入-x2F-替换模式" class="headerlink" title="Insert：切换为输入&#x2F;替换模式"></a>Insert：切换为输入&#x2F;替换模式</h4><h4 id="ESC：退出输入模式，切换到命令模式"><a href="#ESC：退出输入模式，切换到命令模式" class="headerlink" title="ESC：退出输入模式，切换到命令模式"></a>ESC：退出输入模式，切换到命令模式</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/VIM%E4%BD%BF%E7%94%A8/" data-id="cl0pbcz42000844ts65x64rh1" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Linux常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.910Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="删除命令：rm命令是remove的缩写，用于用户永久性的删除文件或者目录，在使用rm命令删除文件或目录时，系统不会产生任何提示信息。"><a href="#删除命令：rm命令是remove的缩写，用于用户永久性的删除文件或者目录，在使用rm命令删除文件或目录时，系统不会产生任何提示信息。" class="headerlink" title="删除命令：rm命令是remove的缩写，用于用户永久性的删除文件或者目录，在使用rm命令删除文件或目录时，系统不会产生任何提示信息。"></a>删除命令：rm命令是remove的缩写，用于用户永久性的删除文件或者目录，在使用rm命令删除文件或目录时，系统不会产生任何提示信息。</h3><p>-f：强制删除，和-i选项相反，使用-f系统不在询问，直接删除目标</p>
-<p>-i：在删除文件或者目录前，系统会给出提示信息，防止用户误删</p>
-<p>-r：递归删除，主要用户删除目录，可删除指定目录及包含所有内容，包括了目录和文件</p>
-<h3 id="显示文件内容命令：more命令是可以分页显示文本文件的内容，使用者可以逐页阅读文件中内容。"><a href="#显示文件内容命令：more命令是可以分页显示文本文件的内容，使用者可以逐页阅读文件中内容。" class="headerlink" title="显示文件内容命令：more命令是可以分页显示文本文件的内容，使用者可以逐页阅读文件中内容。"></a>显示文件内容命令：more命令是可以分页显示文本文件的内容，使用者可以逐页阅读文件中内容。</h3><p>-f：计算行数时，以实际的行数，而不是自动换行过后的行数。</p>
-<p>-p：不以卷动的方式显示每一页，而是先清除屏幕后再显示内容。</p>
-<p>-c：跟-p选项相似，不同的是先显示内容再清除其他旧资料。</p>
-<p>-s：当遇到有连续两行以上的空白行时，就替换为一行的空白行。</p>
-<p>-u：不显示下引号（根据环境变量TREM指定的终端而有所不同）。</p>
-<p>+n：从第n行开始显示文件内容，n代表数字。</p>
-<p>-n：一次显示的行数，n代表数字。</p>
-<h3 id="文件查找命令：find命令是在目录结构中搜索文件，并执行指定的操作。"><a href="#文件查找命令：find命令是在目录结构中搜索文件，并执行指定的操作。" class="headerlink" title="文件查找命令：find命令是在目录结构中搜索文件，并执行指定的操作。"></a>文件查找命令：find命令是在目录结构中搜索文件，并执行指定的操作。</h3><p>基本格式【root@localhost~】#find 路径 选项 【输出形式】</p>
-<p>路径：                                    选项：                                                   输出形式：</p>
-<p>~：表示$HOME目录             -name：按照名字查找                            print：表示将结果输出到标准为止</p>
-<p>.：表示当前目录                    -perm：安装权限查找                             exec：对匹配的文件执行该参数所</p>
-<p>&#x2F;：表示根目录                        -prune：不再当前指令的目录下查找       给出的shell命令。command{} \；</p>
-<p>​                                                                                                               ok：与exec作用相同，区别在于在</p>
-<p>​                                               -user：文件属主来查找                            执行命令之前，都会给出提示让用</p>
-<p>​                                               -group：文件所属组来查找                       户确认是否执行。</p>
-<p>​                                                -type：按照文件类型查找</p>
-<h3 id="内容查找命令：grep命令是用来在每一个文件或中（或特定输出上）搜索特定的模式，当使用grep时，包含指定字符模式的每一行内容，都会被打印（显示）到屏幕上，但是使用grep命令并不改变文件中的内容。"><a href="#内容查找命令：grep命令是用来在每一个文件或中（或特定输出上）搜索特定的模式，当使用grep时，包含指定字符模式的每一行内容，都会被打印（显示）到屏幕上，但是使用grep命令并不改变文件中的内容。" class="headerlink" title="内容查找命令：grep命令是用来在每一个文件或中（或特定输出上）搜索特定的模式，当使用grep时，包含指定字符模式的每一行内容，都会被打印（显示）到屏幕上，但是使用grep命令并不改变文件中的内容。"></a>内容查找命令：grep命令是用来在每一个文件或中（或特定输出上）搜索特定的模式，当使用grep时，包含指定字符模式的每一行内容，都会被打印（显示）到屏幕上，但是使用grep命令并不改变文件中的内容。</h3><p>基本格式：【root@localhost~】#grep 【选项】 模式 文件名</p>
-<p>-c：仅列出文件中包含模式的行数。</p>
-<p>-i：忽略模式中的字母大小写</p>
-<p>-l：列出带有匹配行的文件名。</p>
-<p>-n：在每一行的最前面列出行号。</p>
-<p>-v：列出没有匹配模式的行</p>
-<p>-w：把表达式当做一个完整的单字符来搜寻，忽略哪些部分匹配的行。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cl0pbcz3v000344tsdo0j9wg1" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-KVM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/KVM/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.907Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是KVM"><a href="#什么是KVM" class="headerlink" title="什么是KVM"></a>什么是KVM</h2><h4 id="Kemel-based-Virtual-Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。"><a href="#Kemel-based-Virtual-Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。" class="headerlink" title="Kemel-based Virtual Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。"></a>Kemel-based Virtual Machine的简称，是一个开源的系统虚拟化模块，相对于Xen，其核心源码很少。KVM目前已成为学术界的主流VMM之一。</h4><h4 id="KVM的虚拟化需要硬件支持（如Intel-VT技术或者AMD-V技术）是基于硬件的完全模拟化。"><a href="#KVM的虚拟化需要硬件支持（如Intel-VT技术或者AMD-V技术）是基于硬件的完全模拟化。" class="headerlink" title="KVM的虚拟化需要硬件支持（如Intel VT技术或者AMD V技术）是基于硬件的完全模拟化。"></a>KVM的虚拟化需要硬件支持（如Intel VT技术或者AMD V技术）是基于硬件的完全模拟化。</h4><h4 id=""><a href="#" class="headerlink" title=""></a></h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/KVM/" data-id="cl0pbcz41000744tsbqpa6cme" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-FHS目录定义图例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/FHS%E7%9B%AE%E5%BD%95%E5%AE%9A%E4%B9%89%E5%9B%BE%E4%BE%8B/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.904Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
+      </header>
     
     <div class="e-content article-entry" itemprop="articleBody">
       
         <table>
 <thead>
 <tr>
-<th></th>
-<th>可共享的  （shareable）</th>
-<th>不可共享的（unshareable）</th>
+<th align="center">函数</th>
+<th align="center">语法</th>
+<th align="center">说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>不可变动的（static）</td>
-<td>&#x2F;usr（软件放置处）</td>
-<td>&#x2F;etc（配置文件）</td>
+<td align="center">copy()</td>
+<td align="center">copy(源文件，目的文件)</td>
+<td align="center">复制文件</td>
 </tr>
 <tr>
-<td>不可变动的（static）</td>
-<td>&#x2F;opt（第三方协议软件）</td>
-<td>&#x2F;boot（开机与核心档）</td>
+<td align="center">unlink()</td>
+<td align="center">unlink(目标文件)</td>
+<td align="center">删除文件</td>
 </tr>
 <tr>
-<td>可变动的（variable）</td>
-<td>&#x2F;var&#x2F;mail（使用者邮箱）</td>
-<td>&#x2F;var&#x2F;run（程序相关）</td>
+<td align="center">rename()</td>
+<td align="center">rename(旧文件名，新文件名)</td>
+<td align="center">重命名文件或目录，或移动文件</td>
 </tr>
 <tr>
-<td>可变动的（variable）</td>
-<td>&#x2F;var&#x2F;spool&#x2F;news（新闻组）</td>
-<td>&#x2F;var&#x2F;lock（程序相关）</td>
+<td align="center">ftruncate()</td>
+<td align="center">ftruncate(目标文件资源，截取长度)</td>
+<td align="center">将文件截断到指定长度</td>
+</tr>
+<tr>
+<td align="center">file_exists()</td>
+<td align="center">file_exists(目标文件名)</td>
+<td align="center">判断文件或文件夹是否存在</td>
+</tr>
+<tr>
+<td align="center">is_file()</td>
+<td align="center">is_file(文件名)</td>
+<td align="center">判断指定的路径存在且为文件</td>
+</tr>
+<tr>
+<td align="center">realpath()</td>
+<td align="center">realpath(文件名)</td>
+<td align="center">返回文件的物理路径</td>
+</tr>
+<tr>
+<td align="center">pathinfo()</td>
+<td align="center">pathinfo(文件名)</td>
+<td align="center">以数组形式返回文件的路径和文件名信息</td>
 </tr>
 </tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/FHS%E7%9B%AE%E5%BD%95%E5%AE%9A%E4%B9%89%E5%9B%BE%E4%BE%8B/" data-id="cl0pbcz3t000144ts3rr2aj63" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/" data-id="cl0zw96nh0004vctsfou0amvr" data-title="PHP文件操作函数：操作文件" class="article-share-link">Share</a>
       
       
       
@@ -433,23 +253,492 @@
 
 
   
-    <article id="post-Docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-PHP目录的基本操作：操作目录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/03/08/Docker/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.900Z" itemprop="datePublished">2022-03-08</time>
+    <a href="/2022/03/18/PHP%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%9B%AE%E5%BD%95/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:04.992Z" itemprop="datePublished">2022-03-18</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/PHP%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%9B%AE%E5%BD%95/">PHP目录的基本操作：操作目录</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h2><h3 id="Docker是一个开源的应用容器引擎，让开发者可以发包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的Linux或Windows机器上，也可以实现虚拟化。容器时完全使用沙箱机制，互相之间不会有任何接口。"><a href="#Docker是一个开源的应用容器引擎，让开发者可以发包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的Linux或Windows机器上，也可以实现虚拟化。容器时完全使用沙箱机制，互相之间不会有任何接口。" class="headerlink" title="Docker是一个开源的应用容器引擎，让开发者可以发包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的Linux或Windows机器上，也可以实现虚拟化。容器时完全使用沙箱机制，互相之间不会有任何接口。"></a>Docker是一个开源的应用容器引擎，让开发者可以发包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的Linux或Windows机器上，也可以实现虚拟化。容器时完全使用沙箱机制，互相之间不会有任何接口。</h3><h3 id="一个完整的Docker有以下几个部分组成："><a href="#一个完整的Docker有以下几个部分组成：" class="headerlink" title="一个完整的Docker有以下几个部分组成："></a>一个完整的Docker有以下几个部分组成：</h3><h4 id="1-DockerClient客户端"><a href="#1-DockerClient客户端" class="headerlink" title="1.DockerClient客户端"></a>1.DockerClient客户端</h4><h4 id="2-Docker-Daemon守护进程"><a href="#2-Docker-Daemon守护进程" class="headerlink" title="2.Docker Daemon守护进程"></a>2.Docker Daemon守护进程</h4><h4 id="3-Docker-Image镜像"><a href="#3-Docker-Image镜像" class="headerlink" title="3.Docker Image镜像"></a>3.Docker Image镜像</h4><h4 id="4-DockerContainer容器"><a href="#4-DockerContainer容器" class="headerlink" title="4.DockerContainer容器"></a>4.DockerContainer容器</h4>
+        <table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">mkdir(pathname)</td>
+<td align="center">新建一个指定的目录</td>
+<td align="center">mkdir(‘temp’)</td>
+</tr>
+<tr>
+<td align="center">rmdir(dirname)</td>
+<td align="center">删除目录，该目录必须为空</td>
+<td align="center">rmdir(‘data’)</td>
+</tr>
+<tr>
+<td align="center">getcwd(void)</td>
+<td align="center">取得当前文件所在的目录</td>
+<td align="center">echo getcwd();</td>
+</tr>
+<tr>
+<td align="center">chdir(dirname)</td>
+<td align="center">改变当前目录</td>
+<td align="center">chdir(‘..&#x2F;‘);</td>
+</tr>
+<tr>
+<td align="center">opendir(path)</td>
+<td align="center">打开目录，返回目录的指针</td>
+<td align="center">$dirh&#x3D;opendir(‘temp’);</td>
+</tr>
+<tr>
+<td align="center">closedir()</td>
+<td align="center">关闭目录，参数为目录指针</td>
+<td align="center">closedir($dirh);</td>
+</tr>
+<tr>
+<td align="center">readdir()</td>
+<td align="center">遍历目录</td>
+<td align="center">$file&#x3D;readdir($dirh);</td>
+</tr>
+<tr>
+<td align="center">scandir(psth,sort)</td>
+<td align="center">以数组形式遍历目录，sort参数可设置升序或降序排列</td>
+<td align="center">$arr&#x3D;acandir(‘D:\ICQ’,1);</td>
+</tr>
+</tbody></table>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/Docker/" data-id="cl0pbcz3n000044tsc5xm9bad" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/18/PHP%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%9B%AE%E5%BD%95/" data-id="cl0zw96nj0007vctsaktffoq9" data-title="PHP目录的基本操作：操作目录" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-什么是Session" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/%E4%BB%80%E4%B9%88%E6%98%AFSession/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:00.214Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/%E4%BB%80%E4%B9%88%E6%98%AFSession/">Session概述</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>什么是Session？</strong></p>
+<p>Session译为“会话”，其本意是指有始有终的一系列动作&#x2F;消息</p>
+<p>Web中的Session指的就是用户在浏览某个网站时，从进入网站到浏览器关闭所经过的这段时间，也就是用户浏览这个网站所花费的时间</p>
+<p>因此Session实际上是一个特定的时间概念，Session默认的生命周期为20分钟</p>
+<p><strong>Session的作用</strong></p>
+<p>Session可以用于身份认证，程序状态记录，页面之间的参数传递等</p>
+<p>因为HTTP协议无状态，为了在服务器保持客户端的状态，就需要使用Session</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/%E4%BB%80%E4%B9%88%E6%98%AFSession/" data-id="cl0zw96nj0008vcts6ecwd0l1" data-title="Session概述" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-总结Cookie和Session的异同点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/%E6%80%BB%E7%BB%93Cookie%E5%92%8CSession%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:06:55.532Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/%E6%80%BB%E7%BB%93Cookie%E5%92%8CSession%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/">总结Cookie和Session的异同点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">异同点</th>
+<th align="center">Cookie</th>
+<th align="center">Session</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">相同</td>
+<td align="center"></td>
+<td align="center">能够保存用户信息的区别</td>
+<td align="center">同Cookie</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">存储位置</td>
+<td align="center">存放在客户端浏览器</td>
+<td align="center">存放在服务器</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">保留时间</td>
+<td align="center">设定有效保存期限</td>
+<td align="center">关闭浏览器后自动作废</td>
+</tr>
+<tr>
+<td align="center">不同点</td>
+<td align="center">存储容量</td>
+<td align="center">每个浏览器只能保存某个Web服务器的最多20个Cookie且大小不超过4KB</td>
+<td align="center">可以创建多个但是过多会影响服务器性能</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">是否被禁用</td>
+<td align="center">用户设置是否开启Cookie</td>
+<td align="center">不会被禁用，因为内容保存在服务器端</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">隐私策略</td>
+<td align="center">对客户端可见，不安全</td>
+<td align="center">存储在服务器，较安全</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">跨域支持</td>
+<td align="center">支持跨域名访问</td>
+<td align="center">不支持跨域名访问</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/%E6%80%BB%E7%BB%93Cookie%E5%92%8CSession%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/" data-id="cl0zw96nk0009vctsfckqfp32" data-title="总结Cookie和Session的异同点" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Cookie注意事项" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/Cookie%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:06:47.276Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/Cookie%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">Cookie注意事项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1.SetCookie()之前不能有任何html输出，空格，空白行都不行</p>
+<p>2.SetCookie()之后，在当前页调用echo $_COOKIE[“name”]不会有输出，必须刷新或到下一个页面才可以看到Cookie值</p>
+<p>3.使用Cookie的限制，一个浏览器能创建的Cookie数量最多为30个，并且每个不能超过4KB，每个WEB站点能设置的Cookie总数不能超过20个</p>
+<p>4.Cookie是保存在客户端的，如果用户禁用了Cookie，那么Cookie也就失效了</p>
+<p>5.Cookie的生命周期到了，Cookie就会失效</p>
+<p>6.设置一个Cookie时失效时间为time()那么在页面浏览完之后就被删除</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/Cookie%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" data-id="cl0zw96n40000vcts44ohdt1u" data-title="Cookie注意事项" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-HTTP会话控制的概述" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/HTTP%E4%BC%9A%E8%AF%9D%E6%8E%A7%E5%88%B6%E7%9A%84%E6%A6%82%E8%BF%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:06:43.438Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/HTTP%E4%BC%9A%E8%AF%9D%E6%8E%A7%E5%88%B6%E7%9A%84%E6%A6%82%E8%BF%B0/">HTTP会话控制的概述</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>HTTP协议本身是无状态的</p>
+<p>http协议无法记录用户经常上哪些网站，有什么爱好，也无法记录用户的ID账号和密码，这就是无状态</p>
+<p>HTTP协议本身是无状态的，客户端只需要简单的向服务器请求下载某些文件，无论是客户端还是服务器都没有必要记录彼此过去的行为，每一次请求之间都是独立的</p>
+<p>HTTP协议自身不具备保存之前发送过的请求或相应的功能</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/HTTP%E4%BC%9A%E8%AF%9D%E6%8E%A7%E5%88%B6%E7%9A%84%E6%A6%82%E8%BF%B0/" data-id="cl0zw96nd0001vcts4ste7919" data-title="HTTP会话控制的概述" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-MySQL程序常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/MySQL%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:06:36.269Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/MySQL%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">MySQL程序常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>显示所有数据库：show databases;</p>
+<p>选定默认数据库：use dbname;</p>
+<p>显示默认数据库中所有表：show tables;</p>
+<p>放弃正在输入的命令：\c</p>
+<p>显示命令清单：\h</p>
+<p>退出MySQL程序：\q</p>
+<p>查看MySQL服务器状态信息：\s</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/MySQL%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cl0zw96nf0002vcts36f66rcn" data-title="MySQL程序常用命令" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-MySQL常用数据类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/MySQL%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:06:27.094Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/MySQL%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">MySQL常用数据类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th align="center">分类</th>
+<th align="center">备注和说明</th>
+<th align="center">数据类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">二进制数据类型</td>
+<td align="center">存储非字符和文本的数据</td>
+<td align="center">BLOB</td>
+<td align="center">可用来存储图像</td>
+</tr>
+<tr>
+<td align="center">文本数据类型</td>
+<td align="center">字符数据包括任意字母、符号或数字字符的组合</td>
+<td align="center">char</td>
+<td align="center">固定长度的Unicode字符数据</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">varchar</td>
+<td align="center">可变长度非Unicode数据</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">text</td>
+<td align="center">存储长文本信息</td>
+</tr>
+<tr>
+<td align="center">日期和时间</td>
+<td align="center">日期和时间在单引号内输入</td>
+<td align="center">time</td>
+<td align="center">时间</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">date</td>
+<td align="center">日期</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">datetime</td>
+<td align="center">日期和时间</td>
+</tr>
+<tr>
+<td align="center">数据型数据</td>
+<td align="center">该数据仅包含数字，包括正数，负数以及浮点数</td>
+<td align="center">int、smallint</td>
+<td align="center">整数</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">float、double</td>
+<td align="center">浮点数</td>
+</tr>
+</tbody></table>
+<p><strong>数值列类型</strong></p>
+<p>所有数值列类型的类型名及其说明和所占的字节数见下表</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">TINYINT</td>
+<td align="center">非常小的整数</td>
+</tr>
+<tr>
+<td align="center">SMALLINT</td>
+<td align="center">较小的整数</td>
+</tr>
+<tr>
+<td align="center">MEDIUMINT</td>
+<td align="center">中等大小的整数</td>
+</tr>
+<tr>
+<td align="center">INT</td>
+<td align="center">标准整数</td>
+</tr>
+<tr>
+<td align="center">BIGINT</td>
+<td align="center">大整数</td>
+</tr>
+<tr>
+<td align="center">FLOAT</td>
+<td align="center">单精度浮点数</td>
+</tr>
+<tr>
+<td align="center">DOUBLE</td>
+<td align="center">双精度浮点数</td>
+</tr>
+<tr>
+<td align="center">DECIMAL</td>
+<td align="center">一个串的浮点数</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/MySQL%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="cl0zw96ng0003vcts5oo3hw4z" data-title="MySQL常用数据类型" class="article-share-link">Share</a>
       
       
       
@@ -462,6 +751,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -492,23 +786,23 @@
       <ul>
         
           <li>
-            <a href="/2022/03/08/20220301/">(no title)</a>
+            <a href="/2022/03/18/PHP%E8%AE%BF%E9%97%AEMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B5%81%E7%A8%8B/">PHP访问MySQL数据库的流程</a>
           </li>
         
           <li>
-            <a href="/2022/03/08/%E8%99%9A%E6%8B%9F%E5%8C%96/">(no title)</a>
+            <a href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%87%BD%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/">PHP文件访问函数:读取文件</a>
           </li>
         
           <li>
-            <a href="/2022/03/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/">(no title)</a>
+            <a href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/">PHP文件操作函数：操作文件</a>
           </li>
         
           <li>
-            <a href="/2022/03/08/%E7%BD%91%E5%AE%89%E6%B3%95/">(no title)</a>
+            <a href="/2022/03/18/PHP%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%9B%AE%E5%BD%95/">PHP目录的基本操作：操作目录</a>
           </li>
         
           <li>
-            <a href="/2022/03/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">(no title)</a>
+            <a href="/2022/03/18/%E4%BB%80%E4%B9%88%E6%98%AFSession/">Session概述</a>
           </li>
         
       </ul>
