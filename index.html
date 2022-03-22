@@ -218,32 +218,32 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322175551909.png" alt="image-20220322175551909"></p>
+        <p>![image-20220322175551909](D:\myblog\source_posts\sqli-labs 1关\image-20220322175551909.png)</p>
 <p>1.先判断闭合符号，单引号报错 <a target="_blank" rel="noopener" href="http://45.32.113.109:11650/Less-1/?id=1&#39;">http://45.32.113.109:11650/Less-1/?id=1&#39;</a></p>
 <p>在后面加上–+试一下<a target="_blank" rel="noopener" href="http://45.32.113.109:11650/Less-1/?id=1&#39;--+">http://45.32.113.109:11650/Less-1/?id=1&#39;--+</a></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180024702.png" alt="image-20220322180024702"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180024702.png" alt="image-20220322180024702"></p>
 <p>2.判断一下注入类型<a target="_blank" rel="noopener" href="http://45.32.113.109:11650/Less-1/?id=1">http://45.32.113.109:11650/Less-1/?id=1</a> and 1&#x3D;1</p>
 <p> <a target="_blank" rel="noopener" href="http://45.32.113.109:11650/Less-1/?id=1">http://45.32.113.109:11650/Less-1/?id=1</a> and 1&#x3D;2</p>
 <p>看页面回显位的反馈，如果一致，则是字符注入，否则是数字注入。</p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180340433.png" alt="image-20220322180340433"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180427825.png" alt="image-20220322180427825"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180340433.png" alt="image-20220322180340433"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180427825.png" alt="image-20220322180427825"></p>
 <p>都显示正确，为字符注入 </p>
 <p>3.判断列数</p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180825723.png" alt="image-20220322180825723"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180859130.png" alt="image-20220322180859130"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180928019.png" alt="image-20220322180928019"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322181000638.png" alt="image-20220322181000638"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180825723.png" alt="image-20220322180825723"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180859130.png" alt="image-20220322180859130"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322180928019.png" alt="image-20220322180928019"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322181000638.png" alt="image-20220322181000638"></p>
 <p>从1到3试了都正确，但大于3后就超出该数据库列的个数，列的个数为3</p>
 <p>4.爆数据库</p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322181512472.png" alt="image-20220322181512472"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322181512472.png" alt="image-20220322181512472"></p>
 <p>5.爆数据表&#x2F;查询表名</p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322181711810.png" alt="image-20220322181711810"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322182721940.png" alt="image-20220322182721940"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322181711810.png" alt="image-20220322181711810"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322182721940.png" alt="image-20220322182721940"></p>
 <p>6.爆字段&#x2F;查询列名</p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322182042257.png" alt="image-20220322182042257"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322182932858.png" alt="image-20220322182932858"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322182042257.png" alt="image-20220322182042257"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322182932858.png" alt="image-20220322182932858"></p>
 <p>7.爆值&#x2F;查询数据</p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322182226222.png" alt="image-20220322182226222"></p>
+<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220322182226222.png" alt="image-20220322182226222"></p>
 
       
     </div>
