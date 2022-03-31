@@ -95,7 +95,7 @@
       
         <p><strong>Less-10</strong> GET - Blind - Time based - double quotes (基于时间的双引号盲注)</p>
 <p>注入语句：id&#x3D;1” and if(length(database())&gt;7 ,sleep(5),1) –+</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330101130633.png" alt="image-20220330101130633"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/fc59241b3ec93e3c.png" alt="image-20220330101130633"></p>
 
       
     </div>
@@ -137,9 +137,9 @@
         <p><strong>Less-9</strong> GET - Blind - Time based. -  Single Quotes  (基于时间的GET单引号盲注&#x2F;基于’的时间盲注)</p>
 <p>注入语句：id&#x3D;1’ and if(length(database())&gt;3 ,sleep(5),1) –+</p>
 <p>因为你不知道数据库名是几个字母，所以先让数字大于3进行判断，然后依次增加。</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330100800597.png" alt="image-20220330100800597"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/a06829add4dd7703.png" alt="image-20220330100800597"></p>
 <p>如果sleep函数不起作用了，说明数据库名可能等于这个数。这时你就能判断它的数据库名啦。</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330100906860.png" alt="image-20220330100906860"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/ee8a83aedc25f26c.png" alt="image-20220330100906860"></p>
 
       
     </div>
@@ -180,9 +180,9 @@
       
         <p><strong>Less-8</strong> GET - Blind - Boolian Based - Single Quotes (布尔型单引号GET盲注&#x2F;基于’的盲注（利用dns回显）)</p>
 <p>布尔型盲注，单引号，id&#x3D;1回显，价格单引号不回显，构造一下验证是不是布尔型payload ?id&#x3D;1’ and 1&#x3D;1 –+ 回显了</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330095718100.png" alt="image-20220330095718100"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/94113ca23fb74db3.png" alt="image-20220330095718100"></p>
 <p>暴库payload</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330100154595.png" alt="image-20220330100154595"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/ffe574c05c9d7d8e.png" alt="image-20220330100154595"></p>
 <p>库名长度可使用?id&#x3D;1’ and length(database())&#x3D;8–+ 判断，同理表名字，段名等。</p>
 <p>最后得到库名?id&#x3D;1’ and left((select database()),8)&#x3D;’security’–+</p>
 
@@ -224,8 +224,8 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p><strong>Less-7</strong> GET - Dump into outfile - String （导出文件GET字符型注入&#x2F;文件读写注入）</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330094355325.png" alt="image-20220330094355325"></p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330095322863.png" alt="image-20220330095322863"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/ad4836077f2cf202.png" alt="image-20220330094355325"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/658f4a08244f92b8.png" alt="image-20220330095322863"></p>
 
       
     </div>
@@ -266,7 +266,7 @@
       
         <p>Less-6 GET - Double Injection - Double Quotes - String (双注入GET双引号字符型注入&#x2F;基于”字符型的错误回显注入)</p>
 <p> 双引号字符型注入，上一题的单引号改成双引号就可以了,同样是两种方法：时间延迟型的手工盲注、报错型的手工盲注或者sqlmap，再有利用concat()几聚合数。</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330093608396.png" alt="image-20220330093608396"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/dc81871f133a190b.png" alt="image-20220330093608396"></p>
 
       
     </div>
@@ -306,12 +306,12 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>Less-5 GET - Double Injection - Single Quotes - String (双注入GET单引号字符型注入&#x2F;基于’字符型的错误回显注入)</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330092509735.png" alt="image-20220330092509735"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/ab6f1b926e828b92.png" alt="image-20220330092509735"></p>
 <p>看到这个报错信息，第一反应就是布尔型盲注、报错型注入、时间延迟型盲注了</p>
 <p>下面给出验证时间延迟型的盲注：</p>
 <p><a target="_blank" rel="noopener" href="http://45.32.113.109:40430/Less-5/?id=1&#39;">http://45.32.113.109:40430/Less-5/?id=1&#39;</a> and sleep(5) –+</p>
 <p>发现明显延迟，说明猜测正确。接下来的思路是通过延迟，依次爆破数据库长度，数据库名，表名，列名，以及字段。</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330093226023.png" alt="image-20220330093226023"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/42f001e55942085b.png" alt="image-20220330093226023"></p>
 
       
     </div>
@@ -351,7 +351,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h3 id="Less-4-GET-Error-based-Double-Quotes-String-（基于错误的GET双引号字符型注入）"><a href="#Less-4-GET-Error-based-Double-Quotes-String-（基于错误的GET双引号字符型注入）" class="headerlink" title="Less-4 GET - Error based - Double Quotes - String （基于错误的GET双引号字符型注入）"></a>Less-4 GET - Error based - Double Quotes - String （基于错误的GET双引号字符型注入）</h3><p>输入单引号，页面无任何变化，输入双引号，页面报错，根据报错信息判断出咱们输入的内容被放到一队双引号和圆括号中，</p>
-<p><img src="/.com//Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220330092050612.png" alt="image-20220330092050612"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/e49465d0810c9843.png" alt="image-20220330092050612"></p>
 
       
     </div>
