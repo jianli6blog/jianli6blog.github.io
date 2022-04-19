@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   
-  <title>渐离的博客</title>
+  <title>xss-labs 6关 | 渐离的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1.点击图片完成get请求，提交name变量test，完整的显示在返回的页面源代码中。 2.get请求的name变量放入xss poc，完整返回在html中，浏览器响应xss poc。  3.后台代码分析，通过$_GET[“name”]，获取name的值，没有过滤通过echo直接进行了输出">
+  <meta name="description" content="1.经测试替换了script，on，没有过滤&lt;&gt;。构造a标签，利用href属性支持javascript:伪协议构造poc，后台对href关键字进行替换，尝试采用大小写混写进行了绕过。  2.后台源代码分析。对get提交的keyword变量，替换&lt;script 、on、src、data、href关键字，采用htmlspecialchars过滤后输出在html中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="渐离的博客">
-<meta property="og:url" content="http://example.com/2022/04/19/xss-labs%E7%AC%AC%E4%B8%80%E5%85%B3/index.html">
+<meta property="og:title" content="xss-labs 6关">
+<meta property="og:url" content="http://example.com/2022/04/19/xss-labs%E7%AC%AC6%E5%85%B3/index.html">
 <meta property="og:site_name" content="渐离的博客">
-<meta property="og:description" content="1.点击图片完成get请求，提交name变量test，完整的显示在返回的页面源代码中。 2.get请求的name变量放入xss poc，完整返回在html中，浏览器响应xss poc。  3.后台代码分析，通过$_GET[“name”]，获取name的值，没有过滤通过echo直接进行了输出">
+<meta property="og:description" content="1.经测试替换了script，on，没有过滤&lt;&gt;。构造a标签，利用href属性支持javascript:伪协议构造poc，后台对href关键字进行替换，尝试采用大小写混写进行了绕过。  2.后台源代码分析。对get提交的keyword变量，替换&lt;script 、on、src、data、href关键字，采用htmlspecialchars过滤后输出在html中">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png">
-<meta property="article:published_time" content="2022-04-19T12:02:12.482Z">
-<meta property="article:modified_time" content="2022-04-19T12:28:50.216Z">
+<meta property="article:published_time" content="2022-04-19T12:02:12.466Z">
+<meta property="article:modified_time" content="2022-04-19T12:32:13.279Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png">
@@ -75,27 +75,36 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-xss-labs第一关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-xss-labs第6关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/04/19/xss-labs%E7%AC%AC%E4%B8%80%E5%85%B3/" class="article-date">
-  <time class="dt-published" datetime="2022-04-19T12:02:12.482Z" itemprop="datePublished">2022-04-19</time>
+    <a href="/2022/04/19/xss-labs%E7%AC%AC6%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-04-19T12:02:12.466Z" itemprop="datePublished">2022-04-19</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      xss-labs 6关
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>1.点击图片完成get请求，提交name变量test，完整的显示在返回的页面源代码中。</p>
-<p>2.get请求的name变量放入xss poc，完整返回在html中，浏览器响应xss poc。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419183239216"></p>
-<p>3.后台代码分析，通过$_GET[“name”]，获取name的值，没有过滤通过echo直接进行了输出</p>
+        <p>1.经测试替换了script，on，没有过滤&lt;&gt;。构造a标签，利用href属性支持javascript:伪协议构造poc，后台对href关键字进行替换，尝试采用大小写混写进行了绕过。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419190016436"></p>
+<p>2.后台源代码分析。对get提交的keyword变量，替换&lt;script 、on、src、data、href关键字，采用htmlspecialchars过滤后输出在html中</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/19/xss-labs%E7%AC%AC%E4%B8%80%E5%85%B3/" data-id="cl264mkcb0000fktsgyqhfmvh" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/19/xss-labs%E7%AC%AC6%E5%85%B3/" data-id="cl264s8fs000510ts7h881ar7" data-title="xss-labs 6关" class="article-share-link">Share</a>
       
       
       
@@ -105,10 +114,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2022/04/19/xss-labs%E7%AC%AC3%E5%85%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          xss-labs 3关
+        
+      </div>
+    </a>
   
-    <a href="/2022/04/19/xss-labs%E7%AC%AC%E4%BA%94%E5%85%B3%20/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2022/04/19/xss-labs%E7%AC%AC2%E5%85%B3/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">xss-labs 5关</div>
+      <div class="article-nav-title">xss-labs 2关</div>
     </a>
   
 </nav>
@@ -146,15 +164,15 @@
       <ul>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC%E4%B8%80%E5%85%B3/">(no title)</a>
+            <a href="/2022/04/19/xss-labs%E7%AC%AC1%E5%85%B3/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC%E4%BA%94%E5%85%B3%20/">xss-labs 5关</a>
+            <a href="/2022/04/19/xss-labs%E7%AC%AC5%E5%85%B3%20/">xss-labs 5关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC%E5%9B%9B%E5%85%B3/">xss-labs 4关</a>
+            <a href="/2022/04/19/xss-labs%E7%AC%AC4%E5%85%B3/">xss-labs 4关</a>
           </li>
         
           <li>
@@ -162,7 +180,7 @@
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC%E5%85%AD%E5%85%B3/">xss-labs 6关</a>
+            <a href="/2022/04/19/xss-labs%E7%AC%AC3%E5%85%B3/">xss-labs 3关</a>
           </li>
         
       </ul>
