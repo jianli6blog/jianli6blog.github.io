@@ -94,9 +94,9 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>1.keyword提交”test&gt;<script>alert(1)</script>&#x2F;&#x2F;构造闭合进行注入，根据返回的html代码，后台对尖括号进行了过滤</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419184306465"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/bd722932dd12b377.png" alt="image-20220419184306465"></p>
 <p>2.构造标签事件进行过滤，返回值实在input标签中，尝试构造onclick事件触发xss。点击输入框后，触发onclick事件，响应onclick中的javascript代码。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419184427089"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/d373d95a22003b55.png" alt="image-20220419184427089"></p>
 <p>3.后台源代码分析。对get请求的keyword变量，过滤掉尖括号，采用htmlspecialchars过滤后用echo直接输出在返回地html中</p>
 
       
