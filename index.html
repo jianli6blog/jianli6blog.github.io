@@ -479,7 +479,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>1.keyword提交”test&gt;<script>alert(1)</script>&#x2F;&#x2F;构造闭合进行注入，根据返回的html代码，后台对尖括号进行了过滤</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419183538140"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/a40d4091efc687e6.png" alt="image-20220419183538140"></p>
 <p>2.构造标签事件进行过滤，返回值实在input标签中，尝试构造onclick事件触发xss。点击输入框后，触发onclick事件，响应onclick中的javascript代码。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/2cd14954c023fff6.png" alt="image-20220419183826227"></p>
 <p>3.构造事件onmouseover，事件成功执行javascript:伪协议。</p>
