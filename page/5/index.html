@@ -71,6 +71,400 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MySQL程序常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/MySQL%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:06:36.269Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/MySQL%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">MySQL程序常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>显示所有数据库：show databases;</p>
+<p>选定默认数据库：use dbname;</p>
+<p>显示默认数据库中所有表：show tables;</p>
+<p>放弃正在输入的命令：\c</p>
+<p>显示命令清单：\h</p>
+<p>退出MySQL程序：\q</p>
+<p>查看MySQL服务器状态信息：\s</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/MySQL%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cl0zw96nf0002vcts36f66rcn" data-title="MySQL程序常用命令" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-MySQL常用数据类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/MySQL%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:06:27.094Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/MySQL%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">MySQL常用数据类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th align="center">分类</th>
+<th align="center">备注和说明</th>
+<th align="center">数据类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">二进制数据类型</td>
+<td align="center">存储非字符和文本的数据</td>
+<td align="center">BLOB</td>
+<td align="center">可用来存储图像</td>
+</tr>
+<tr>
+<td align="center">文本数据类型</td>
+<td align="center">字符数据包括任意字母、符号或数字字符的组合</td>
+<td align="center">char</td>
+<td align="center">固定长度的Unicode字符数据</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">varchar</td>
+<td align="center">可变长度非Unicode数据</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">text</td>
+<td align="center">存储长文本信息</td>
+</tr>
+<tr>
+<td align="center">日期和时间</td>
+<td align="center">日期和时间在单引号内输入</td>
+<td align="center">time</td>
+<td align="center">时间</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">date</td>
+<td align="center">日期</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">datetime</td>
+<td align="center">日期和时间</td>
+</tr>
+<tr>
+<td align="center">数据型数据</td>
+<td align="center">该数据仅包含数字，包括正数，负数以及浮点数</td>
+<td align="center">int、smallint</td>
+<td align="center">整数</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">float、double</td>
+<td align="center">浮点数</td>
+</tr>
+</tbody></table>
+<p><strong>数值列类型</strong></p>
+<p>所有数值列类型的类型名及其说明和所占的字节数见下表</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">TINYINT</td>
+<td align="center">非常小的整数</td>
+</tr>
+<tr>
+<td align="center">SMALLINT</td>
+<td align="center">较小的整数</td>
+</tr>
+<tr>
+<td align="center">MEDIUMINT</td>
+<td align="center">中等大小的整数</td>
+</tr>
+<tr>
+<td align="center">INT</td>
+<td align="center">标准整数</td>
+</tr>
+<tr>
+<td align="center">BIGINT</td>
+<td align="center">大整数</td>
+</tr>
+<tr>
+<td align="center">FLOAT</td>
+<td align="center">单精度浮点数</td>
+</tr>
+<tr>
+<td align="center">DOUBLE</td>
+<td align="center">双精度浮点数</td>
+</tr>
+<tr>
+<td align="center">DECIMAL</td>
+<td align="center">一个串的浮点数</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/MySQL%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="cl0zw96ng0003vcts5oo3hw4z" data-title="MySQL常用数据类型" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-20220301" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/08/20220301/" class="article-date">
+  <time class="dt-published" datetime="2022-03-08T10:19:47.571Z" itemprop="datePublished">2022-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/08/20220301/">20220301笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>用户和用户组的关系</strong></p>
+<ol>
+<li><p>一对一∶一个用户可以存在一个组中，是组中的<br>唯一成员</p>
+</li>
+<li><p>一对多：一个用户可以存在多个用户组中，此用户具有多个组的共同权限</p>
+</li>
+<li><p>多对一：多个用户可以存放在一个组中，这些用户具有和组相同的权限</p>
+</li>
+<li><p>多对多：多个用户可以存在多个组中，即以上3种关系的扩展</p>
+</li>
+</ol>
+<p><strong>相关文件的配置</strong></p>
+<p>&#x2F;etc&#x2F;group 存储当前系统中所有用户组信息<br>该文件内容的每一行代表一个用户组，每个用户组信息格式固定</p>
+<p><strong>文件权限</strong></p>
+<p>文件权限分别为：读(read)，写(write)，执x(execute)，简写即为(r.w.x)，也可以可用数字来 (4,2,1) 表示，-即无权限</p>
+<p>每个文件针对每类访问者定义了三种主要权限，其中，第一位：代表文件类型，后面每3位代表一组权限，分别是：所有者、所属组和其他人</p>
+<p>文件类型</p>
+<p>所有者权限</p>
+<p>属组权限</p>
+<p>其他用户权限</p>
+<p>r–&gt;读</p>
+<p>W–&gt;写</p>
+<p>x –&gt; 执行</p>
+<p><strong>注：</strong></p>
+<p>1.root账户不受文件权限的读写限制，执行权限受限制</p>
+<p>2.用户获取文件权限的顺序：先看是否为所有者，如果是，则后面权限不看；再看是否为所属组，如果是，则后面权限不看</p>
+<p>3.缺省创建的文件不可授予可执行的权限，基于最基本的安全机制，防止病毒等</p>
+<p>第一个字段（root）：用户组的组名</p>
+<p>第二个字段（x）：加密后的用户组密码</p>
+<p>第三个字段（0）：用户组ID，GID</p>
+<p>第四个字段（空值）：用户组的成员列表，多个组成员用逗号分隔</p>
+<p>用户和用户组的概念</p>
+<p>用户 ——&gt;使用操作系统的人</p>
+<p>Linux系统是一个多用户多任务的分时操作系统，任何一个要使用系统资源的用户，都必须首先向系统管理员申请一个账号，然后以这个账号的身份进入系统每个用户账号都拥有一个唯一的用户名和各自的口令</p>
+<p><strong>相关文件的配置</strong></p>
+<p>&#x2F;etc&#x2F;passwd 存储当前系统中所有用户的信息（密码除外）</p>
+<p>该文件内容的每一行代表一个用户的配置信息，每个用户信息格式固定</p>
+<p>第一个字段（第一个root）：用户名</p>
+<p>第二个字段（x）：加密的密码</p>
+<p>第三个字段（第一个0）：用户ID</p>
+<p>第四个字段（第二个0）：用户组ID</p>
+<p>第五个字段（第二个root）：用户的描述信息，默认用户的全名或空值</p>
+<p>第六个字段（&#x2F;root）：用户的主目录</p>
+<p>第七个字段（&#x2F;bin&#x2F;bash）：登录shell，字段&#x2F;sbin&#x2F;nologin表示禁止登录</p>
+<p>显示、设置文件的默认权限<img src="https://cdn.nlark.com/yuque/0/2022/png/26310272/1646127699481-5f4760be-4e50-4a3c-8074-207251b36d1f.png" alt="img"></p>
+<p>[root@localhost ~]# umask [-S] #显示、设置文件的默认权限</p>
+<p>参数说明： -S 以 rwx 形式显示新建文件的默认权限</p>
+<p>命令说明：</p>
+<p>对于windows而言，默认权限是从上级目录继承而来的，而linux则是通过umask权限设定的</p>
+<p>如果用户建立文件，默认是没有可执行权限的，即权限表示为 -rw-rw-rw-，即666</p>
+<p>如果用户建立目录，默认权限是全开放的，即权限表示drwxrwxrwx，即777</p>
+<p>umask的值，默认为022，就是需要减掉的权限</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/08/20220301/" data-id="cl0pbcz3u000244tses0mgtn8" data-title="20220301笔记" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-虚拟化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/08/%E8%99%9A%E6%8B%9F%E5%8C%96/" class="article-date">
+  <time class="dt-published" datetime="2022-03-08T10:19:39.929Z" itemprop="datePublished">2022-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/08/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是虚拟化"><a href="#什么是虚拟化" class="headerlink" title="什么是虚拟化"></a>什么是虚拟化</h2><h4 id="虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。"><a href="#虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。" class="headerlink" title="虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。"></a>虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。</h4><h4 id="虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。"><a href="#虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。" class="headerlink" title="虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。"></a>虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。</h4><h2 id="虚拟化来历"><a href="#虚拟化来历" class="headerlink" title="虚拟化来历"></a>虚拟化来历</h2><h3 id="按照其发展历史分为四个阶段："><a href="#按照其发展历史分为四个阶段：" class="headerlink" title="按照其发展历史分为四个阶段："></a>按照其发展历史分为四个阶段：</h3><h4 id="（1）硬件仿真虚拟化"><a href="#（1）硬件仿真虚拟化" class="headerlink" title="（1）硬件仿真虚拟化"></a>（1）硬件仿真虚拟化</h4><h4 id="（2）完全虚拟化"><a href="#（2）完全虚拟化" class="headerlink" title="（2）完全虚拟化"></a>（2）完全虚拟化</h4><h4 id="（3）半虚拟化"><a href="#（3）半虚拟化" class="headerlink" title="（3）半虚拟化"></a>（3）半虚拟化</h4><h4 id="（4）操作系统虚拟化"><a href="#（4）操作系统虚拟化" class="headerlink" title="（4）操作系统虚拟化"></a>（4）操作系统虚拟化</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/08/%E8%99%9A%E6%8B%9F%E5%8C%96/" data-id="cl0pbcz42000944ts4h278z0h" data-title="虚拟化" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-信息安全框架" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" class="article-date">
+  <time class="dt-published" datetime="2022-03-08T10:19:39.926Z" itemprop="datePublished">2022-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/">信息安全框架</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="curl-file-x2F-x2F-x2F-root-x2F-baidu-txt"><a href="#curl-file-x2F-x2F-x2F-root-x2F-baidu-txt" class="headerlink" title="curl file:&#x2F;&#x2F;&#x2F;root&#x2F;baidu.txt"></a>curl file:&#x2F;&#x2F;&#x2F;root&#x2F;baidu.txt</h2><p>curl命令是一个网络工具，其主要作用是通过http、ftp等方式下载文件，也能够上传文件，作为一个功能强大的网络工具，curl命令同时支持HTTPS等众多协议。</p>
+<h1 id="Linux软件安装"><a href="#Linux软件安装" class="headerlink" title="Linux软件安装"></a>Linux软件安装</h1><h2 id="Centos系统中三种安装软件的方法"><a href="#Centos系统中三种安装软件的方法" class="headerlink" title="Centos系统中三种安装软件的方法"></a>Centos系统中三种安装软件的方法</h2><h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><h3 id="1-源码包"><a href="#1-源码包" class="headerlink" title="1.源码包"></a>1.源码包</h3><h3 id="2-rpm二进制包"><a href="#2-rpm二进制包" class="headerlink" title="2.rpm二进制包"></a>2.rpm二进制包</h3><h3 id="3-软件包管理工具（yum）"><a href="#3-软件包管理工具（yum）" class="headerlink" title="3.软件包管理工具（yum）"></a>3.软件包管理工具（yum）</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" data-id="cl0pbcz3w000444ts7fo47cl1" data-title="信息安全框架" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-网安法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/08/%E7%BD%91%E5%AE%89%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2022-03-08T10:19:39.922Z" itemprop="datePublished">2022-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/08/%E7%BD%91%E5%AE%89%E6%B3%95/">网安法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="网安法解读"><a href="#网安法解读" class="headerlink" title="网安法解读"></a>网安法解读</h1><h2 id="（1）《中华人民共和国刑法》（第285、286条）"><a href="#（1）《中华人民共和国刑法》（第285、286条）" class="headerlink" title="（1）《中华人民共和国刑法》（第285、286条）"></a>（1）《中华人民共和国刑法》（第285、286条）</h2><h3 id="第二百八十五条"><a href="#第二百八十五条" class="headerlink" title="第二百八十五条"></a>第二百八十五条</h3><h4 id="第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。"><a href="#第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。" class="headerlink" title="第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。"></a>第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。</h4><h3 id="第二百八十六条"><a href="#第二百八十六条" class="headerlink" title="第二百八十六条"></a>第二百八十六条</h3><h4 id="第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。"><a href="#第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。" class="headerlink" title="第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。"></a>第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。</h4><h4 id="第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。"><a href="#第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。" class="headerlink" title="第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。"></a>第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。</h4><h4 id="第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。"><a href="#第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。" class="headerlink" title="第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。"></a>第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。</h4><h2 id="（2）《中华人民共和国刑法》（七）"><a href="#（2）《中华人民共和国刑法》（七）" class="headerlink" title="（2）《中华人民共和国刑法》（七）"></a>（2）《中华人民共和国刑法》（七）</h2><h4 id="在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”"><a href="#在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”" class="headerlink" title="在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”"></a>在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”</h4><h4 id="“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”"><a href="#“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”" class="headerlink" title="“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”"></a>“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”</h4><h2 id="（3）《中华人民共和国刑法》（九）"><a href="#（3）《中华人民共和国刑法》（九）" class="headerlink" title="（3）《中华人民共和国刑法》（九）"></a>（3）《中华人民共和国刑法》（九）</h2><h4 id="在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”"><a href="#在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”" class="headerlink" title="在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”"></a>在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”</h4><h4 id="在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”"><a href="#在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”" class="headerlink" title="在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”"></a>在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”</h4><h4 id="在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金："><a href="#在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金：" class="headerlink" title="在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金："></a>在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金：</h4><h4 id="（一）致使违法信息大量传播的；"><a href="#（一）致使违法信息大量传播的；" class="headerlink" title="（一）致使违法信息大量传播的；"></a>（一）致使违法信息大量传播的；</h4><h4 id="（二）致使用户信息泄露，造成严重后果的；"><a href="#（二）致使用户信息泄露，造成严重后果的；" class="headerlink" title="（二）致使用户信息泄露，造成严重后果的；"></a>（二）致使用户信息泄露，造成严重后果的；</h4><h4 id="（三）致使刑事案件证据灭失，情节严重的；"><a href="#（三）致使刑事案件证据灭失，情节严重的；" class="headerlink" title="（三）致使刑事案件证据灭失，情节严重的；"></a>（三）致使刑事案件证据灭失，情节严重的；</h4><h4 id="（四）有其他严重情节的。"><a href="#（四）有其他严重情节的。" class="headerlink" title="（四）有其他严重情节的。"></a>（四）有其他严重情节的。</h4><h4 id="“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”"><a href="#“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”" class="headerlink" title="“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”"></a>“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”</h4><h4 id="“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”"><a href="#“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”" class="headerlink" title="“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”"></a>“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”</h4><h2 id="（4）《网络安全法》"><a href="#（4）《网络安全法》" class="headerlink" title="（4）《网络安全法》"></a>（4）《网络安全法》</h2><h4 id="《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。"><a href="#《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。" class="headerlink" title="《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。"></a>《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。</h4><h4 id="《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。"><a href="#《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。" class="headerlink" title="《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。"></a>《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。</h4><h4 id><a href="#" class="headerlink" title></a></h4><h4 id="-1"><a href="#-1" class="headerlink" title></a></h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/08/%E7%BD%91%E5%AE%89%E6%B3%95/" data-id="cl0pbcz40000644ts8mhhcpe0" data-title="网安法" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-操作系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/03/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="article-date">
@@ -250,98 +644,11 @@
 
 
   
-    <article id="post-FHS目录定义图例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/FHS%E7%9B%AE%E5%BD%95%E5%AE%9A%E4%B9%89%E5%9B%BE%E4%BE%8B/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.904Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="title-FHS目录定义图例"><a href="#title-FHS目录定义图例" class="headerlink" title="title:FHS目录定义图例"></a>title:FHS目录定义图例</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>可共享的  （shareable）</th>
-<th>不可共享的（unshareable）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>不可变动的（static）</td>
-<td>&#x2F;usr（软件放置处）</td>
-<td>&#x2F;etc（配置文件）</td>
-</tr>
-<tr>
-<td>不可变动的（static）</td>
-<td>&#x2F;opt（第三方协议软件）</td>
-<td>&#x2F;boot（开机与核心档）</td>
-</tr>
-<tr>
-<td>可变动的（variable）</td>
-<td>&#x2F;var&#x2F;mail（使用者邮箱）</td>
-<td>&#x2F;var&#x2F;run（程序相关）</td>
-</tr>
-<tr>
-<td>可变动的（variable）</td>
-<td>&#x2F;var&#x2F;spool&#x2F;news（新闻组）</td>
-<td>&#x2F;var&#x2F;lock（程序相关）</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/FHS%E7%9B%AE%E5%BD%95%E5%AE%9A%E4%B9%89%E5%9B%BE%E4%BE%8B/" data-id="cl0pbcz3t000144ts3rr2aj63" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/Docker/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.900Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="title-Docker"><a href="#title-Docker" class="headerlink" title="title:Docker"></a>title:Docker</h2><h2 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h2><h3 id="Docker是一个开源的应用容器引擎，让开发者可以发包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的Linux或Windows机器上，也可以实现虚拟化。容器时完全使用沙箱机制，互相之间不会有任何接口。"><a href="#Docker是一个开源的应用容器引擎，让开发者可以发包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的Linux或Windows机器上，也可以实现虚拟化。容器时完全使用沙箱机制，互相之间不会有任何接口。" class="headerlink" title="Docker是一个开源的应用容器引擎，让开发者可以发包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的Linux或Windows机器上，也可以实现虚拟化。容器时完全使用沙箱机制，互相之间不会有任何接口。"></a>Docker是一个开源的应用容器引擎，让开发者可以发包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的Linux或Windows机器上，也可以实现虚拟化。容器时完全使用沙箱机制，互相之间不会有任何接口。</h3><h3 id="一个完整的Docker有以下几个部分组成："><a href="#一个完整的Docker有以下几个部分组成：" class="headerlink" title="一个完整的Docker有以下几个部分组成："></a>一个完整的Docker有以下几个部分组成：</h3><h4 id="1-DockerClient客户端"><a href="#1-DockerClient客户端" class="headerlink" title="1.DockerClient客户端"></a>1.DockerClient客户端</h4><h4 id="2-Docker-Daemon守护进程"><a href="#2-Docker-Daemon守护进程" class="headerlink" title="2.Docker Daemon守护进程"></a>2.Docker Daemon守护进程</h4><h4 id="3-Docker-Image镜像"><a href="#3-Docker-Image镜像" class="headerlink" title="3.Docker Image镜像"></a>3.Docker Image镜像</h4><h4 id="4-DockerContainer容器"><a href="#4-DockerContainer容器" class="headerlink" title="4.DockerContainer容器"></a>4.DockerContainer容器</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/Docker/" data-id="cl0pbcz3n000044tsc5xm9bad" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -373,23 +680,23 @@
       <ul>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC1%E5%85%B3/">xss-labs 1关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC11%E5%85%B3%20/">xss-labs第11关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC5%E5%85%B3%20/">xss-labs 5关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC12%E5%85%B3%20/">xss-labs第12关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC4%E5%85%B3/">xss-labs 4关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC10%E5%85%B3/">xss-labs第10关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC3%E5%85%B3/">xss-labs 3关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC9%E5%85%B3/">xss-labs第9关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC6%E5%85%B3/">xss-labs 6关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC8%E5%85%B3/">xss-labs 8关</a>
           </li>
         
       </ul>

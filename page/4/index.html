@@ -71,6 +71,397 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-sqli-labs 2关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/22/sqli-labs%202%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-03-22T11:39:11.171Z" itemprop="datePublished">2022-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/22/sqli-labs%202%E5%85%B3/">sql-labs 2关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1.先判断闭合符号</p>
+<p><img src="https://cloud.xhserver.top/img/74" alt="image-20220322184201955"></p>
+<p>2.再来判断一下类型</p>
+<p><img src="https://cloud.xhserver.top/img/75" alt="image-20220322184130610"></p>
+<p><img src="https://cloud.xhserver.top/img/76" alt="image-20220322184101493"></p>
+<p>可知这是整型。所以就不用再添加闭合符号了。</p>
+<p>3.然后在判断列数</p>
+<p><img src="https://cloud.xhserver.top/img/77" alt="image-20220322184337046"></p>
+<p><img src="https://cloud.xhserver.top/img/78" alt="image-20220322184358415"></p>
+<p><img src="https://cloud.xhserver.top/img/79" alt="image-20220322184410037"></p>
+<p><img src="https://cloud.xhserver.top/img/80" alt="image-20220322184428351"></p>
+<p>与第一关情况相同。</p>
+<p>4.爆数据库</p>
+<p><img src="https://cloud.xhserver.top/img/81" alt="image-20220322191126573"></p>
+<p>5.爆数据表&#x2F;查询表名</p>
+<p><img src="https://cloud.xhserver.top/img/82" alt="image-20220322185051451"></p>
+<p>6.爆字段&#x2F;查询列名</p>
+<p><img src="https://cloud.xhserver.top/img/83" alt="image-20220322192105122"></p>
+<p>7.爆值&#x2F;查询数据</p>
+<p><img src="https://cloud.xhserver.top/img/84" alt="image-20220322185158410"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/22/sqli-labs%202%E5%85%B3/" data-id="cl1237psy00014wts81ig6uy2" data-title="sql-labs 2关" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sqli-labs 1关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/22/sqli-labs%201%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-03-22T11:39:11.157Z" itemprop="datePublished">2022-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/22/sqli-labs%201%E5%85%B3/">sql-labs 1关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://cloud.xhserver.top/img/46" alt="image-20220322175551909"></p>
+<p>1.先判断闭合符号，单引号报错 <a target="_blank" rel="noopener" href="http://45.32.113.109:11650/Less-1/?id=1&#39;">http://45.32.113.109:11650/Less-1/?id=1&#39;</a></p>
+<p>在后面加上–+试一下<a target="_blank" rel="noopener" href="http://45.32.113.109:11650/Less-1/?id=1&#39;--+">http://45.32.113.109:11650/Less-1/?id=1&#39;--+</a></p>
+<p><img src="https://cloud.xhserver.top/img/47" alt="image-20220322180024702"></p>
+<p>2.判断一下注入类型<a target="_blank" rel="noopener" href="http://45.32.113.109:11650/Less-1/?id=1">http://45.32.113.109:11650/Less-1/?id=1</a> and 1&#x3D;1</p>
+<p> <a target="_blank" rel="noopener" href="http://45.32.113.109:11650/Less-1/?id=1">http://45.32.113.109:11650/Less-1/?id=1</a> and 1&#x3D;2</p>
+<p>看页面回显位的反馈，如果一致，则是字符注入，否则是数字注入。</p>
+<p><img src="https://cloud.xhserver.top/img/48" alt="image-20220322180340433"></p>
+<p><img src="https://cloud.xhserver.top/img/49" alt="image-20220322180427825"></p>
+<p>都显示正确，为字符注入 </p>
+<p>3.判断列数</p>
+<p><img src="https://cloud.xhserver.top/img/50" alt="image-20220322180825723"></p>
+<p><img src="https://cloud.xhserver.top/img/51" alt="image-20220322180859130"></p>
+<p><img src="https://cloud.xhserver.top/img/52" alt="image-20220322180928019"></p>
+<p><img src="https://cloud.xhserver.top/img/53" alt="image-20220322181000638"></p>
+<p>从1到3试了都正确，但大于3后就超出该数据库列的个数，列的个数为3</p>
+<p>4.爆数据库</p>
+<p><img src="https://cloud.xhserver.top/img/54" alt="image-20220322181512472"></p>
+<p>5.爆数据表&#x2F;查询表名</p>
+<p><img src="https://cloud.xhserver.top/img/55" alt="image-20220322181711810"></p>
+<p><img src="https://cloud.xhserver.top/img/58" alt="image-20220322182721940"></p>
+<p>6.爆字段&#x2F;查询列名</p>
+<p><img src="https://cloud.xhserver.top/img/56" alt="image-20220322182042257"></p>
+<p><img src="https://cloud.xhserver.top/img/59" alt="image-20220322182932858"></p>
+<p>7.爆值&#x2F;查询数据</p>
+<p><img src="https://cloud.xhserver.top/img/57" alt="image-20220322182226222"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/22/sqli-labs%201%E5%85%B3/" data-id="cl1237pst00004wts8ok94boa" data-title="sql-labs 1关" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-PHP访问MySQL数据库的流程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/PHP%E8%AE%BF%E9%97%AEMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B5%81%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:18.132Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/PHP%E8%AE%BF%E9%97%AEMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B5%81%E7%A8%8B/">PHP访问MySQL数据库的流程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>第一步：连结MySQL服务器</p>
+<p>​            使用 mysql_connect() 函数建立与MySQL服务器的连接</p>
+<p>第二步：选择MySQL数据库</p>
+<p>​            使用 mysql_select_db() 函数选择MySQL数据库服务器上的数据库，并与数据库建立连接</p>
+<p>第三步：执行SQL语句</p>
+<p>​            在选择的数据库中使用mysql_query() 函数执行SQL语句。</p>
+<p>对数据的操作方式主要包括四种方式：</p>
+<p>查询数据：使用select语句实现数据的查询功能</p>
+<p>插入数据：使用insert into语句向数据库中插入数据</p>
+<p>更新数据：使用update语句修改数据库中的记录</p>
+<p>删除数据：使用delete语句删除数据库中的记录</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/PHP%E8%AE%BF%E9%97%AEMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B5%81%E7%A8%8B/" data-id="cl0zw96ni0006vcts6nmrckfe" data-title="PHP访问MySQL数据库的流程" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-PHP文件访问函数读取文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%87%BD%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:13.898Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%87%BD%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/">PHP文件访问函数:读取文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>读取文件常用函数</p>
+<p>fread() ：读取整个文件或文件中指定长度的字符串，可用于二进制文件读取</p>
+<p>fgets() ：读取文件中的一行字符</p>
+<p>fgetss() ：读取文件中的一行字符并去掉所有HTML和PHP标记</p>
+<p>fgetc() ：读取文件中的一个字符</p>
+<p>file_get_contents() ：将文件读入字符串</p>
+<p>file() ：把文件读入到一个数组中</p>
+<p>readfile() ：读取一个文件，并输出到输出缓冲</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/PHP%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E5%87%BD%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/" data-id="cl0zw96nh0005vcts70yx0wff" data-title="PHP文件访问函数:读取文件" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-PHP文件操作函数：操作文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:09.532Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/">PHP文件操作函数：操作文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">语法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">copy()</td>
+<td align="center">copy(源文件，目的文件)</td>
+<td align="center">复制文件</td>
+</tr>
+<tr>
+<td align="center">unlink()</td>
+<td align="center">unlink(目标文件)</td>
+<td align="center">删除文件</td>
+</tr>
+<tr>
+<td align="center">rename()</td>
+<td align="center">rename(旧文件名，新文件名)</td>
+<td align="center">重命名文件或目录，或移动文件</td>
+</tr>
+<tr>
+<td align="center">ftruncate()</td>
+<td align="center">ftruncate(目标文件资源，截取长度)</td>
+<td align="center">将文件截断到指定长度</td>
+</tr>
+<tr>
+<td align="center">file_exists()</td>
+<td align="center">file_exists(目标文件名)</td>
+<td align="center">判断文件或文件夹是否存在</td>
+</tr>
+<tr>
+<td align="center">is_file()</td>
+<td align="center">is_file(文件名)</td>
+<td align="center">判断指定的路径存在且为文件</td>
+</tr>
+<tr>
+<td align="center">realpath()</td>
+<td align="center">realpath(文件名)</td>
+<td align="center">返回文件的物理路径</td>
+</tr>
+<tr>
+<td align="center">pathinfo()</td>
+<td align="center">pathinfo(文件名)</td>
+<td align="center">以数组形式返回文件的路径和文件名信息</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/PHP%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%EF%BC%9A%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/" data-id="cl0zw96nh0004vctsfou0amvr" data-title="PHP文件操作函数：操作文件" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-PHP目录的基本操作：操作目录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/PHP%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%9B%AE%E5%BD%95/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T05:07:04.992Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/18/PHP%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%9B%AE%E5%BD%95/">PHP目录的基本操作：操作目录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">mkdir(pathname)</td>
+<td align="center">新建一个指定的目录</td>
+<td align="center">mkdir(‘temp’)</td>
+</tr>
+<tr>
+<td align="center">rmdir(dirname)</td>
+<td align="center">删除目录，该目录必须为空</td>
+<td align="center">rmdir(‘data’)</td>
+</tr>
+<tr>
+<td align="center">getcwd(void)</td>
+<td align="center">取得当前文件所在的目录</td>
+<td align="center">echo getcwd();</td>
+</tr>
+<tr>
+<td align="center">chdir(dirname)</td>
+<td align="center">改变当前目录</td>
+<td align="center">chdir(‘..&#x2F;‘);</td>
+</tr>
+<tr>
+<td align="center">opendir(path)</td>
+<td align="center">打开目录，返回目录的指针</td>
+<td align="center">$dirh&#x3D;opendir(‘temp’);</td>
+</tr>
+<tr>
+<td align="center">closedir()</td>
+<td align="center">关闭目录，参数为目录指针</td>
+<td align="center">closedir($dirh);</td>
+</tr>
+<tr>
+<td align="center">readdir()</td>
+<td align="center">遍历目录</td>
+<td align="center">$file&#x3D;readdir($dirh);</td>
+</tr>
+<tr>
+<td align="center">scandir(psth,sort)</td>
+<td align="center">以数组形式遍历目录，sort参数可设置升序或降序排列</td>
+<td align="center">$arr&#x3D;acandir(‘D:\ICQ’,1);</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/18/PHP%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%93%8D%E4%BD%9C%E7%9B%AE%E5%BD%95/" data-id="cl0zw96nj0007vctsaktffoq9" data-title="PHP目录的基本操作：操作目录" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-什么是Session" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/03/18/%E4%BB%80%E4%B9%88%E6%98%AFSession/" class="article-date">
@@ -292,405 +683,11 @@
 
 
   
-    <article id="post-MySQL程序常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/18/MySQL%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time class="dt-published" datetime="2022-03-18T05:06:36.269Z" itemprop="datePublished">2022-03-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/18/MySQL%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">MySQL程序常用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>显示所有数据库：show databases;</p>
-<p>选定默认数据库：use dbname;</p>
-<p>显示默认数据库中所有表：show tables;</p>
-<p>放弃正在输入的命令：\c</p>
-<p>显示命令清单：\h</p>
-<p>退出MySQL程序：\q</p>
-<p>查看MySQL服务器状态信息：\s</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/18/MySQL%E7%A8%8B%E5%BA%8F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cl0zw96nf0002vcts36f66rcn" data-title="MySQL程序常用命令" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-MySQL常用数据类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/18/MySQL%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
-  <time class="dt-published" datetime="2022-03-18T05:06:27.094Z" itemprop="datePublished">2022-03-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/18/MySQL%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">MySQL常用数据类型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <table>
-<thead>
-<tr>
-<th align="center">分类</th>
-<th align="center">备注和说明</th>
-<th align="center">数据类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">二进制数据类型</td>
-<td align="center">存储非字符和文本的数据</td>
-<td align="center">BLOB</td>
-<td align="center">可用来存储图像</td>
-</tr>
-<tr>
-<td align="center">文本数据类型</td>
-<td align="center">字符数据包括任意字母、符号或数字字符的组合</td>
-<td align="center">char</td>
-<td align="center">固定长度的Unicode字符数据</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">varchar</td>
-<td align="center">可变长度非Unicode数据</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">text</td>
-<td align="center">存储长文本信息</td>
-</tr>
-<tr>
-<td align="center">日期和时间</td>
-<td align="center">日期和时间在单引号内输入</td>
-<td align="center">time</td>
-<td align="center">时间</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">date</td>
-<td align="center">日期</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">datetime</td>
-<td align="center">日期和时间</td>
-</tr>
-<tr>
-<td align="center">数据型数据</td>
-<td align="center">该数据仅包含数字，包括正数，负数以及浮点数</td>
-<td align="center">int、smallint</td>
-<td align="center">整数</td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">float、double</td>
-<td align="center">浮点数</td>
-</tr>
-</tbody></table>
-<p><strong>数值列类型</strong></p>
-<p>所有数值列类型的类型名及其说明和所占的字节数见下表</p>
-<table>
-<thead>
-<tr>
-<th align="center">类型名</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">TINYINT</td>
-<td align="center">非常小的整数</td>
-</tr>
-<tr>
-<td align="center">SMALLINT</td>
-<td align="center">较小的整数</td>
-</tr>
-<tr>
-<td align="center">MEDIUMINT</td>
-<td align="center">中等大小的整数</td>
-</tr>
-<tr>
-<td align="center">INT</td>
-<td align="center">标准整数</td>
-</tr>
-<tr>
-<td align="center">BIGINT</td>
-<td align="center">大整数</td>
-</tr>
-<tr>
-<td align="center">FLOAT</td>
-<td align="center">单精度浮点数</td>
-</tr>
-<tr>
-<td align="center">DOUBLE</td>
-<td align="center">双精度浮点数</td>
-</tr>
-<tr>
-<td align="center">DECIMAL</td>
-<td align="center">一个串的浮点数</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/18/MySQL%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="cl0zw96ng0003vcts5oo3hw4z" data-title="MySQL常用数据类型" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-20220301" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/20220301/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:47.571Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/08/20220301/">20220301笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>用户和用户组的关系</strong></p>
-<ol>
-<li><p>一对一∶一个用户可以存在一个组中，是组中的<br>唯一成员</p>
-</li>
-<li><p>一对多：一个用户可以存在多个用户组中，此用户具有多个组的共同权限</p>
-</li>
-<li><p>多对一：多个用户可以存放在一个组中，这些用户具有和组相同的权限</p>
-</li>
-<li><p>多对多：多个用户可以存在多个组中，即以上3种关系的扩展</p>
-</li>
-</ol>
-<p><strong>相关文件的配置</strong></p>
-<p>&#x2F;etc&#x2F;group 存储当前系统中所有用户组信息<br>该文件内容的每一行代表一个用户组，每个用户组信息格式固定</p>
-<p><strong>文件权限</strong></p>
-<p>文件权限分别为：读(read)，写(write)，执x(execute)，简写即为(r.w.x)，也可以可用数字来 (4,2,1) 表示，-即无权限</p>
-<p>每个文件针对每类访问者定义了三种主要权限，其中，第一位：代表文件类型，后面每3位代表一组权限，分别是：所有者、所属组和其他人</p>
-<p>文件类型</p>
-<p>所有者权限</p>
-<p>属组权限</p>
-<p>其他用户权限</p>
-<p>r–&gt;读</p>
-<p>W–&gt;写</p>
-<p>x –&gt; 执行</p>
-<p><strong>注：</strong></p>
-<p>1.root账户不受文件权限的读写限制，执行权限受限制</p>
-<p>2.用户获取文件权限的顺序：先看是否为所有者，如果是，则后面权限不看；再看是否为所属组，如果是，则后面权限不看</p>
-<p>3.缺省创建的文件不可授予可执行的权限，基于最基本的安全机制，防止病毒等</p>
-<p>第一个字段（root）：用户组的组名</p>
-<p>第二个字段（x）：加密后的用户组密码</p>
-<p>第三个字段（0）：用户组ID，GID</p>
-<p>第四个字段（空值）：用户组的成员列表，多个组成员用逗号分隔</p>
-<p>用户和用户组的概念</p>
-<p>用户 ——&gt;使用操作系统的人</p>
-<p>Linux系统是一个多用户多任务的分时操作系统，任何一个要使用系统资源的用户，都必须首先向系统管理员申请一个账号，然后以这个账号的身份进入系统每个用户账号都拥有一个唯一的用户名和各自的口令</p>
-<p><strong>相关文件的配置</strong></p>
-<p>&#x2F;etc&#x2F;passwd 存储当前系统中所有用户的信息（密码除外）</p>
-<p>该文件内容的每一行代表一个用户的配置信息，每个用户信息格式固定</p>
-<p>第一个字段（第一个root）：用户名</p>
-<p>第二个字段（x）：加密的密码</p>
-<p>第三个字段（第一个0）：用户ID</p>
-<p>第四个字段（第二个0）：用户组ID</p>
-<p>第五个字段（第二个root）：用户的描述信息，默认用户的全名或空值</p>
-<p>第六个字段（&#x2F;root）：用户的主目录</p>
-<p>第七个字段（&#x2F;bin&#x2F;bash）：登录shell，字段&#x2F;sbin&#x2F;nologin表示禁止登录</p>
-<p>显示、设置文件的默认权限<img src="https://cdn.nlark.com/yuque/0/2022/png/26310272/1646127699481-5f4760be-4e50-4a3c-8074-207251b36d1f.png" alt="img"></p>
-<p>[root@localhost ~]# umask [-S] #显示、设置文件的默认权限</p>
-<p>参数说明： -S 以 rwx 形式显示新建文件的默认权限</p>
-<p>命令说明：</p>
-<p>对于windows而言，默认权限是从上级目录继承而来的，而linux则是通过umask权限设定的</p>
-<p>如果用户建立文件，默认是没有可执行权限的，即权限表示为 -rw-rw-rw-，即666</p>
-<p>如果用户建立目录，默认权限是全开放的，即权限表示drwxrwxrwx，即777</p>
-<p>umask的值，默认为022，就是需要减掉的权限</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/20220301/" data-id="cl0pbcz3u000244tses0mgtn8" data-title="20220301笔记" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-虚拟化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/%E8%99%9A%E6%8B%9F%E5%8C%96/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.929Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/08/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是虚拟化"><a href="#什么是虚拟化" class="headerlink" title="什么是虚拟化"></a>什么是虚拟化</h2><h4 id="虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。"><a href="#虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。" class="headerlink" title="虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。"></a>虚拟化（Virtualization）是指通过虚拟化技术将一台计算机虚拟为多台逻辑计算机，在一台计算机上同时运行多个逻辑计算机，每个逻辑计算机可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高计算机的工作效率。</h4><h4 id="虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。"><a href="#虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。" class="headerlink" title="虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。"></a>虚拟化使用软件的方法重新定义划分IT资源，可以实现IT资源的动态分配、灵活调度、跨域共享，提高IT资源利用率，使IT资源能够真正成为社会基础设施，服务于各行各业中灵活多变的应用需求。</h4><h2 id="虚拟化来历"><a href="#虚拟化来历" class="headerlink" title="虚拟化来历"></a>虚拟化来历</h2><h3 id="按照其发展历史分为四个阶段："><a href="#按照其发展历史分为四个阶段：" class="headerlink" title="按照其发展历史分为四个阶段："></a>按照其发展历史分为四个阶段：</h3><h4 id="（1）硬件仿真虚拟化"><a href="#（1）硬件仿真虚拟化" class="headerlink" title="（1）硬件仿真虚拟化"></a>（1）硬件仿真虚拟化</h4><h4 id="（2）完全虚拟化"><a href="#（2）完全虚拟化" class="headerlink" title="（2）完全虚拟化"></a>（2）完全虚拟化</h4><h4 id="（3）半虚拟化"><a href="#（3）半虚拟化" class="headerlink" title="（3）半虚拟化"></a>（3）半虚拟化</h4><h4 id="（4）操作系统虚拟化"><a href="#（4）操作系统虚拟化" class="headerlink" title="（4）操作系统虚拟化"></a>（4）操作系统虚拟化</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/%E8%99%9A%E6%8B%9F%E5%8C%96/" data-id="cl0pbcz42000944ts4h278z0h" data-title="虚拟化" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-信息安全框架" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.926Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/">信息安全框架</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="curl-file-x2F-x2F-x2F-root-x2F-baidu-txt"><a href="#curl-file-x2F-x2F-x2F-root-x2F-baidu-txt" class="headerlink" title="curl file:&#x2F;&#x2F;&#x2F;root&#x2F;baidu.txt"></a>curl file:&#x2F;&#x2F;&#x2F;root&#x2F;baidu.txt</h2><p>curl命令是一个网络工具，其主要作用是通过http、ftp等方式下载文件，也能够上传文件，作为一个功能强大的网络工具，curl命令同时支持HTTPS等众多协议。</p>
-<h1 id="Linux软件安装"><a href="#Linux软件安装" class="headerlink" title="Linux软件安装"></a>Linux软件安装</h1><h2 id="Centos系统中三种安装软件的方法"><a href="#Centos系统中三种安装软件的方法" class="headerlink" title="Centos系统中三种安装软件的方法"></a>Centos系统中三种安装软件的方法</h2><h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><h3 id="1-源码包"><a href="#1-源码包" class="headerlink" title="1.源码包"></a>1.源码包</h3><h3 id="2-rpm二进制包"><a href="#2-rpm二进制包" class="headerlink" title="2.rpm二进制包"></a>2.rpm二进制包</h3><h3 id="3-软件包管理工具（yum）"><a href="#3-软件包管理工具（yum）" class="headerlink" title="3.软件包管理工具（yum）"></a>3.软件包管理工具（yum）</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" data-id="cl0pbcz3w000444ts7fo47cl1" data-title="信息安全框架" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-网安法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/08/%E7%BD%91%E5%AE%89%E6%B3%95/" class="article-date">
-  <time class="dt-published" datetime="2022-03-08T10:19:39.922Z" itemprop="datePublished">2022-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/08/%E7%BD%91%E5%AE%89%E6%B3%95/">网安法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="网安法解读"><a href="#网安法解读" class="headerlink" title="网安法解读"></a>网安法解读</h1><h2 id="（1）《中华人民共和国刑法》（第285、286条）"><a href="#（1）《中华人民共和国刑法》（第285、286条）" class="headerlink" title="（1）《中华人民共和国刑法》（第285、286条）"></a>（1）《中华人民共和国刑法》（第285、286条）</h2><h3 id="第二百八十五条"><a href="#第二百八十五条" class="headerlink" title="第二百八十五条"></a>第二百八十五条</h3><h4 id="第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。"><a href="#第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。" class="headerlink" title="第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。"></a>第一款：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。</h4><h3 id="第二百八十六条"><a href="#第二百八十六条" class="headerlink" title="第二百八十六条"></a>第二百八十六条</h3><h4 id="第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。"><a href="#第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。" class="headerlink" title="第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。"></a>第一款：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役；后果特别严重的，处五年以上有期徒刑。</h4><h4 id="第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。"><a href="#第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。" class="headerlink" title="第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。"></a>第二款：违反国家规定，对计算机信息系统中存储、处理或者传输的数据和应用程序进行删除、修改、增加的操作，后果严重的，依照前款的规定处罚。</h4><h4 id="第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。"><a href="#第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。" class="headerlink" title="第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。"></a>第三款：故意制作、传播计算机病毒等破坏性程序，影响计算机系统正常运行，后果严重的，依照第一款的规定处罚。</h4><h2 id="（2）《中华人民共和国刑法》（七）"><a href="#（2）《中华人民共和国刑法》（七）" class="headerlink" title="（2）《中华人民共和国刑法》（七）"></a>（2）《中华人民共和国刑法》（七）</h2><h4 id="在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”"><a href="#在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”" class="headerlink" title="在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”"></a>在刑法第二百八十五条中增加两款作为第二款、第三款：“违反国家规定，侵入前款规定以外的计算机信息系统或者采用其他技术手段，获取该计算机信息系统中存储、处理或者传输的数据，或者对该计算机信息系统实施非法控制，情节严重的，处三年以下有期徒刑或者拘役，并处或者单处罚金：情节特别严重的，处三年以下有期徒刑，并处罚金。”</h4><h4 id="“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”"><a href="#“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”" class="headerlink" title="“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”"></a>“提供专门用于侵入、非法控制计算机信息系统的程序、工具，或者明知他人实施侵入、非法控制计算机信息系统的违法犯罪行为而为其提供程序、工具、情节严重的，依照前款的规定处罚。”</h4><h2 id="（3）《中华人民共和国刑法》（九）"><a href="#（3）《中华人民共和国刑法》（九）" class="headerlink" title="（3）《中华人民共和国刑法》（九）"></a>（3）《中华人民共和国刑法》（九）</h2><h4 id="在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”"><a href="#在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”" class="headerlink" title="在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”"></a>在刑法第二百八十五条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照各该款的规定处罚。”</h4><h4 id="在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”"><a href="#在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”" class="headerlink" title="在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”"></a>在刑法第二百八十六条中增加一款作为第四款：“单位犯前三款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接责任人员，依照第一款的规定处罚。”</h4><h4 id="在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金："><a href="#在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金：" class="headerlink" title="在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金："></a>在刑法第二百八十六条中增加一条，作为第二百八十六条之一：“网络服务提供者不履行法律、行政法规规定的信息网络安全管理义务，经监管部门责令采取改正措施而拒不改正，有下列情形之一的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金：</h4><h4 id="（一）致使违法信息大量传播的；"><a href="#（一）致使违法信息大量传播的；" class="headerlink" title="（一）致使违法信息大量传播的；"></a>（一）致使违法信息大量传播的；</h4><h4 id="（二）致使用户信息泄露，造成严重后果的；"><a href="#（二）致使用户信息泄露，造成严重后果的；" class="headerlink" title="（二）致使用户信息泄露，造成严重后果的；"></a>（二）致使用户信息泄露，造成严重后果的；</h4><h4 id="（三）致使刑事案件证据灭失，情节严重的；"><a href="#（三）致使刑事案件证据灭失，情节严重的；" class="headerlink" title="（三）致使刑事案件证据灭失，情节严重的；"></a>（三）致使刑事案件证据灭失，情节严重的；</h4><h4 id="（四）有其他严重情节的。"><a href="#（四）有其他严重情节的。" class="headerlink" title="（四）有其他严重情节的。"></a>（四）有其他严重情节的。</h4><h4 id="“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”"><a href="#“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”" class="headerlink" title="“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”"></a>“单位犯前款罪的，对单位判处罚金，并对其直接负责的主管人员和其他直接负责人员，依照前款的规定处罚。”</h4><h4 id="“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”"><a href="#“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”" class="headerlink" title="“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”"></a>“有前两款行为，同时构成其他犯罪的，依照处罚较重的规定定罪处罚。”</h4><h2 id="（4）《网络安全法》"><a href="#（4）《网络安全法》" class="headerlink" title="（4）《网络安全法》"></a>（4）《网络安全法》</h2><h4 id="《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。"><a href="#《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。" class="headerlink" title="《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。"></a>《中华人民共和国网络安全法》由中华人民共和国第十二届全国人民代表大会常务委员会第二十四次会议于2016年11月7日通过，自2017年6月1日起施行。</h4><h4 id="《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。"><a href="#《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。" class="headerlink" title="《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。"></a>《中华人民共和国网络安全法》是为保障网络安全，维护网络空间主权和国家安全、社会公共利益，保护公民、法人和其他组织的合法权益，促进经济社会信息化健康发展而制定的法律。</h4><h4 id><a href="#" class="headerlink" title></a></h4><h4 id="-1"><a href="#-1" class="headerlink" title></a></h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/08/%E7%BD%91%E5%AE%89%E6%B3%95/" data-id="cl0pbcz40000644ts8mhhcpe0" data-title="网安法" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -722,23 +719,23 @@
       <ul>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC1%E5%85%B3/">xss-labs 1关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC11%E5%85%B3%20/">xss-labs第11关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC5%E5%85%B3%20/">xss-labs 5关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC12%E5%85%B3%20/">xss-labs第12关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC4%E5%85%B3/">xss-labs 4关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC10%E5%85%B3/">xss-labs第10关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC3%E5%85%B3/">xss-labs 3关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC9%E5%85%B3/">xss-labs第9关</a>
           </li>
         
           <li>
-            <a href="/2022/04/19/xss-labs%E7%AC%AC6%E5%85%B3/">xss-labs 6关</a>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC8%E5%85%B3/">xss-labs 8关</a>
           </li>
         
       </ul>

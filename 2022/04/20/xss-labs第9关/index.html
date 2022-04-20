@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>xss-labs第9关 | 渐离的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1.采用第八关的poc，发现poc中应包含合法的url，poc中添加&#x2F;&#x2F;http:&#x2F;&#x2F;www.baidu.com,发现可以进行绕过   2.后台源代码分析。get提交的keyword变量，替换关键字script、on、src、data、href、”，判断该变量有无http:&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xss-labs第9关">
+<meta property="og:url" content="http://example.com/2022/04/20/xss-labs%E7%AC%AC9%E5%85%B3/index.html">
+<meta property="og:site_name" content="渐离的博客">
+<meta property="og:description" content="1.采用第八关的poc，发现poc中应包含合法的url，poc中添加&#x2F;&#x2F;http:&#x2F;&#x2F;www.baidu.com,发现可以进行绕过   2.后台源代码分析。get提交的keyword变量，替换关键字script、on、src、data、href、”，判断该变量有无http:&#x2F;&#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/0b8732467a822f1b.png">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/e310bf0f86f2db8c.png">
+<meta property="article:published_time" content="2022-04-20T10:29:21.556Z">
+<meta property="article:modified_time" content="2022-04-20T10:39:05.133Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/04/20/0b8732467a822f1b.png">
+  
+    <link rel="alternate" href="/atom.xml" title="渐离的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">渐离的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-xss-labs第9关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/20/xss-labs%E7%AC%AC9%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2022-04-20T10:29:21.556Z" itemprop="datePublished">2022-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      xss-labs第9关
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p> 1.采用第八关的poc，发现poc中应包含合法的url，poc中添加&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.baidu.com,发现可以进行绕过/">http://www.baidu.com,发现可以进行绕过</a></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/0b8732467a822f1b.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/04/20/e310bf0f86f2db8c.png"></p>
+<p>2.后台源代码分析。get提交的keyword变量，替换关键字script、on、src、data、href、”，判断该变量有无http:&#x2F;&#x2F;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/20/xss-labs%E7%AC%AC9%E5%85%B3/" data-id="cl27g5tlq0005actshux5gayt" data-title="xss-labs第9关" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/20/xss-labs%E7%AC%AC10%E5%85%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          xss-labs第10关
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/20/xss-labs%E7%AC%AC8%E5%85%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">xss-labs 8关</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC11%E5%85%B3%20/">xss-labs第11关</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC12%E5%85%B3%20/">xss-labs第12关</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC10%E5%85%B3/">xss-labs第10关</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC9%E5%85%B3/">xss-labs第9关</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/20/xss-labs%E7%AC%AC8%E5%85%B3/">xss-labs 8关</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
