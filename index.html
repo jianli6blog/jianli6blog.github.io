@@ -98,6 +98,10 @@
 <p>2.构造标签事件进行过滤，返回值实在input标签中，尝试构造onclick事件触发xss。点击输入框后，触发onclick事件，响应onclick中的javascript代码。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/d373d95a22003b55.png" alt="image-20220419184427089"></p>
 <p>3.后台源代码分析。对get请求的keyword变量，过滤掉尖括号，采用htmlspecialchars过滤后用echo直接输出在返回地html中</p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
@@ -143,6 +147,10 @@
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/02bc4c87bfa23611.png"></p>
 <p>确定后，点击框处，结束本题</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/ac9725e2872cf554.png"></p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
@@ -187,6 +195,10 @@
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/da6183ff0c017e23.png"></p>
 <p>依旧是点击框处，结束本题</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/19a318c6042d0a25.png"></p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
@@ -230,6 +242,10 @@
 <p> 2.详细查看源代码，可能有隐藏的表单，尝试提交t_link、t_history、t_sort变量，t_sort变量返回在了html的value中，尝试进行了绕过。构造poc：”type&#x3D;”text” onclick&#x3D;”alert(1)”，web浏览器成功执行 。ps:type&#x3D;”text”为构造一个文本框，用来触发onclick事件</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/f2bd9c42b639698e.png"></p>
 <p> 3.后台源代码分析，获取了get请求的keyword变量、t_sort变量，t_sort变量过滤掉了尖括号，输出在value属性中</p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
@@ -272,6 +288,10 @@
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/0b8732467a822f1b.png"></p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/e310bf0f86f2db8c.png"></p>
 <p>2.后台源代码分析。get提交的keyword变量，替换关键字script、on、src、data、href、”，判断该变量有无http:&#x2F;&#x2F;</p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
@@ -313,6 +333,10 @@
         <p>通过源代码发现输入的值会被传入herf，点击友情链接会执行被带入的参数<br>利用这点进行注入，javascript:alert()，发现被过滤，大小写绕过也不行，尝试html实体注入</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/d10f28c823916755.png" alt="less8"></p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/a7bbf5a362146b91.png" alt="less8.1"></p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
@@ -354,6 +378,10 @@
         <p>首先尝试输入&lt;&gt;alert(1)&lt;&gt;<br>发现被屏蔽<br>之后尝试双写，过关</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/f5cf2f26a029f67e.png" alt="less7.1"></p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/beab536546613580.png" alt="less7.01"></p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
@@ -396,6 +424,10 @@
 <p>2.get请求的name变量放入xss poc，完整返回在html中，浏览器响应xss poc。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419183239216"></p>
 <p>3.后台代码分析，通过$_GET[“name”]，获取name的值，没有过滤通过echo直接进行了输出</p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
@@ -440,6 +472,10 @@
 <p>3.利用没有过滤尖括号，构造a标签再尝试利用a标签的href属性执行javascript:伪协议，”&gt;<a href="javascript:alert(1)">,没有对javascript进行过滤，触发xss</a></p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419185244536"></p>
 <p>4.后台源代码分析，对get提交的keyword变量，script替换成scr_ipt,on替换成o_n，htmlspecialchars函数过滤后，输出在html中</p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
@@ -485,6 +521,10 @@
 <p>3.构造事件onmouseover，事件成功执行javascript:伪协议。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/46801fe2ed202a34.png" alt="image-20220419183956203"></p>
 <p>4.后台源代码分析，采用htmlspecialchars函数对获取keyword变量进行过滤，输出在input标签的value中。htmlspecichars对尖括号进行了过滤。</p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>

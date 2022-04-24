@@ -6,18 +6,18 @@
   
   <title>xss-labs第11关 | 渐离的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="刚开始进来就已经发现相比于上一个关卡，又多了一个ref参数，  在对于sql注入的学习中，我们已经知道，reffer参数注入或者cookies注入这一类的，于是大胆猜测这次在reffer处进行xss注入，打开hackbar，添加了reffer的选项后，添加语句 “ type&#x3D;”text” onclick&#x3D;” alert(‘xss’)  确定后，点击框处，结束本题">
+  <meta name="description" content="刚开始进来就已经发现相比于上一个关卡，又多了一个ref参数，  在对于sql注入的学习中，我们已经知道，reffer参数注入或者cookies注入这一类的，于是大胆猜测这次在reffer处进行xss注入，打开hackbar，添加了reffer的选项后，添加语句 “ type&#x3D;”text” onclick&#x3D;” alert(‘xss’)  确定后，点击框处，结束本题  ‘alert">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xss-labs第11关">
 <meta property="og:url" content="http://example.com/2022/04/20/xss-labs%E7%AC%AC11%E5%85%B3/index.html">
 <meta property="og:site_name" content="渐离的博客">
-<meta property="og:description" content="刚开始进来就已经发现相比于上一个关卡，又多了一个ref参数，  在对于sql注入的学习中，我们已经知道，reffer参数注入或者cookies注入这一类的，于是大胆猜测这次在reffer处进行xss注入，打开hackbar，添加了reffer的选项后，添加语句 “ type&#x3D;”text” onclick&#x3D;” alert(‘xss’)  确定后，点击框处，结束本题">
+<meta property="og:description" content="刚开始进来就已经发现相比于上一个关卡，又多了一个ref参数，  在对于sql注入的学习中，我们已经知道，reffer参数注入或者cookies注入这一类的，于是大胆猜测这次在reffer处进行xss注入，打开hackbar，添加了reffer的选项后，添加语句 “ type&#x3D;”text” onclick&#x3D;” alert(‘xss’)  确定后，点击框处，结束本题  ‘alert">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/3594a06dde388daa.png">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/02bc4c87bfa23611.png">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/ac9725e2872cf554.png">
 <meta property="article:published_time" content="2022-04-20T10:34:55.351Z">
-<meta property="article:modified_time" content="2022-04-20T10:56:23.847Z">
+<meta property="article:modified_time" content="2022-04-24T14:28:42.907Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/04/20/3594a06dde388daa.png">
@@ -106,6 +106,10 @@
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/02bc4c87bfa23611.png"></p>
 <p>确定后，点击框处，结束本题</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/ac9725e2872cf554.png"></p>
+<p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
 
       
     </div>
