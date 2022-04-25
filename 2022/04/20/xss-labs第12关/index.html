@@ -6,18 +6,18 @@
   
   <title>xss-labs第12关 | 渐离的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="第十二题一开始进入后先是查看源代码，发现11题的ref换成了ua，  ua在这种地方，联想以前的useragent注入，现在这个ua大概率就是useragent，操作相较于第十一题没什么新鲜感，依旧是将之前放到ref的地方换成useragent，如图所示  依旧是点击框处，结束本题  ‘alert(&#x2F;xss&#x2F;)‘ ‘z&#x3D;&#39;alert&#39;‘ ‘z&#x3D;z+&#39;(&#x2F;xss&#x2F;)&#39;‘ ‘eval(z)‘">
+  <meta name="description" content="‘alert(&#x2F;xss&#x2F;)‘ ‘z&#x3D;&#39;alert&#39;‘ ‘z&#x3D;z+&#39;(&#x2F;xss&#x2F;)&#39;‘ ‘eval(z)‘ ‘’’ 第十二题一开始进入后先是查看源代码，发现11题的ref换成了ua，  ua在这种地方，联想以前的useragent注入，现在这个ua大概率就是useragent，操作相较于第十一题没什么新鲜感，依旧是将之前放到ref的地方换成useragent，如图所示  依旧是点击框处，结束本题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xss-labs第12关">
 <meta property="og:url" content="http://example.com/2022/04/20/xss-labs%E7%AC%AC12%E5%85%B3/index.html">
 <meta property="og:site_name" content="渐离的博客">
-<meta property="og:description" content="第十二题一开始进入后先是查看源代码，发现11题的ref换成了ua，  ua在这种地方，联想以前的useragent注入，现在这个ua大概率就是useragent，操作相较于第十一题没什么新鲜感，依旧是将之前放到ref的地方换成useragent，如图所示  依旧是点击框处，结束本题  ‘alert(&#x2F;xss&#x2F;)‘ ‘z&#x3D;&#39;alert&#39;‘ ‘z&#x3D;z+&#39;(&#x2F;xss&#x2F;)&#39;‘ ‘eval(z)‘">
+<meta property="og:description" content="‘alert(&#x2F;xss&#x2F;)‘ ‘z&#x3D;&#39;alert&#39;‘ ‘z&#x3D;z+&#39;(&#x2F;xss&#x2F;)&#39;‘ ‘eval(z)‘ ‘’’ 第十二题一开始进入后先是查看源代码，发现11题的ref换成了ua，  ua在这种地方，联想以前的useragent注入，现在这个ua大概率就是useragent，操作相较于第十一题没什么新鲜感，依旧是将之前放到ref的地方换成useragent，如图所示  依旧是点击框处，结束本题">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/11183f560fb0bbe7.png">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/da6183ff0c017e23.png">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/19a318c6042d0a25.png">
 <meta property="article:published_time" content="2022-04-20T10:34:53.460Z">
-<meta property="article:modified_time" content="2022-04-24T14:28:45.806Z">
+<meta property="article:modified_time" content="2022-04-25T03:06:10.083Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/04/20/11183f560fb0bbe7.png">
@@ -99,16 +99,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>第十二题一开始进入后先是查看源代码，发现11题的ref换成了ua，</p>
+        <p>‘<script>alert(/xss/)</script>‘</p>
+<p>‘<script>z='alert'</script>‘</p>
+<p>‘<script>z=z+'(/xss/)'</script>‘</p>
+<p>‘<script>eval(z)</script>‘</p>
+<p>‘’’</p>
+<p>第十二题一开始进入后先是查看源代码，发现11题的ref换成了ua，</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/11183f560fb0bbe7.png"></p>
 <p>ua在这种地方，联想以前的useragent注入，现在这个ua大概率就是useragent，操作相较于第十一题没什么新鲜感，依旧是将之前放到ref的地方换成useragent，如图所示</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/da6183ff0c017e23.png"></p>
 <p>依旧是点击框处，结束本题</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/19a318c6042d0a25.png"></p>
-<p>‘<script>alert(/xss/)</script>‘</p>
-<p>‘<script>z='alert'</script>‘</p>
-<p>‘<script>z=z+'(/xss/)'</script>‘</p>
-<p>‘<script>eval(z)</script>‘</p>
+<p>‘’’</p>
 
       
     </div>
