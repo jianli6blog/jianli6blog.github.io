@@ -6,17 +6,17 @@
   
   <title>xss-labs 7关 | 渐离的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="‘alert(&#x2F;xss&#x2F;)‘ ‘z&#x3D;&#39;alert&#39;‘ ‘z&#x3D;z+&#39;(&#x2F;xss&#x2F;)&#39;‘ ‘eval(z)‘ ‘’’ 首先尝试输入&lt;&gt;alert(1)&lt;&gt;发现被屏蔽之后尝试双写，过关   ‘’’">
+  <meta name="description" content="首先尝试输入&lt;&gt;alert(1)&lt;&gt;发现被屏蔽之后尝试双写，过关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xss-labs 7关">
 <meta property="og:url" content="http://example.com/2022/04/20/xss-labs%E7%AC%AC7%E5%85%B3/index.html">
 <meta property="og:site_name" content="渐离的博客">
-<meta property="og:description" content="‘alert(&#x2F;xss&#x2F;)‘ ‘z&#x3D;&#39;alert&#39;‘ ‘z&#x3D;z+&#39;(&#x2F;xss&#x2F;)&#39;‘ ‘eval(z)‘ ‘’’ 首先尝试输入&lt;&gt;alert(1)&lt;&gt;发现被屏蔽之后尝试双写，过关   ‘’’">
+<meta property="og:description" content="首先尝试输入&lt;&gt;alert(1)&lt;&gt;发现被屏蔽之后尝试双写，过关">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/f5cf2f26a029f67e.png">
 <meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/04/20/beab536546613580.png">
 <meta property="article:published_time" content="2022-04-20T10:01:13.292Z">
-<meta property="article:modified_time" content="2022-04-25T03:05:22.334Z">
+<meta property="article:modified_time" content="2022-04-26T02:27:36.150Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/04/20/f5cf2f26a029f67e.png">
@@ -98,15 +98,9 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>‘<script>alert(/xss/)</script>‘</p>
-<p>‘<script>z='alert'</script>‘</p>
-<p>‘<script>z=z+'(/xss/)'</script>‘</p>
-<p>‘<script>eval(z)</script>‘</p>
-<p>‘’’</p>
-<p>首先尝试输入&lt;&gt;alert(1)&lt;&gt;<br>发现被屏蔽<br>之后尝试双写，过关</p>
+        <p>首先尝试输入&lt;&gt;alert(1)&lt;&gt;<br>发现被屏蔽<br>之后尝试双写，过关</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/f5cf2f26a029f67e.png" alt="less7.1"></p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/20/beab536546613580.png" alt="less7.01"></p>
-<p>‘’’</p>
 
       
     </div>

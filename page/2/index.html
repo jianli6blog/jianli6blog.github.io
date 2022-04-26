@@ -93,15 +93,9 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>‘<script>alert(/xss/)</script>‘</p>
-<p>‘<script>z='alert'</script>‘</p>
-<p>‘<script>z=z+'(/xss/)'</script>‘</p>
-<p>‘<script>eval(z)</script>‘</p>
-<p>‘’’</p>
-<p>1.经测试替换了script，on，没有过滤&lt;&gt;。构造a标签，利用href属性支持javascript:伪协议构造poc，后台对href关键字进行替换，尝试采用大小写混写进行了绕过。</p>
+        <p>1.经测试替换了script，on，没有过滤&lt;&gt;。构造a标签，利用href属性支持javascript:伪协议构造poc，后台对href关键字进行替换，尝试采用大小写混写进行了绕过。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419190016436"></p>
 <p>2.后台源代码分析。对get提交的keyword变量，替换&lt;script 、on、src、data、href关键字，采用htmlspecialchars过滤后输出在html中</p>
-<p>‘’’</p>
 
       
     </div>
@@ -140,19 +134,13 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>‘<script>alert(/xss/)</script>‘</p>
-<p>‘<script>z='alert'</script>‘</p>
-<p>‘<script>z=z+'(/xss/)'</script>‘</p>
-<p>‘<script>eval(z)</script>‘</p>
-<p>‘’’</p>
-<p>1.利用name参数提交poc，查看返回的html代码，需要构造闭合</p>
+        <p>1.利用name参数提交poc，查看返回的html代码，需要构造闭合</p>
 <p>2.构造闭合，浏览器响应poc。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2022/04/19/e2aef2ef20791176.png" alt="image-20220419182514583"></p>
 <p>3.后台源代码分析</p>
 <p>获取浏览器提交的keyword值，未进行过滤，输出在<input name="keyword" value="'.$str.'">。</p>
 <p>如果是keyword提交的是<script>alert(xss)</script>,返回的就会是<input name="keyword" value="<script>alert(1)</script>">,javascript引擎并不会执行<script>,所以需要构造闭合。</p>
 <p>keyword提交test"><script>alert(1)</script>&#x2F;&#x2F;,php处理后返回的html就会是<input name="keyword" value="test"> <script>alert(1)</script>&#x2F;&#x2F;“&gt;，&#x2F;&#x2F;是注释的作用，javascript引擎执行<script>alert(1)</script></p>
-<p>‘’’</p>
 
       
     </div>
